@@ -5,6 +5,9 @@
     text-align: center;
     padding: 50px 20px;
     color: white;
+    width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 
@@ -12,8 +15,8 @@
     font-size: 2rem;
     font-weight: bold;
     color: #2d7cf3;
-    margin-top: 15vh;
-    margin-bottom: 15vh;
+    margin-top: 10vh;
+    margin-bottom: 8vh;
 }
 
 
@@ -30,18 +33,21 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 30px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 
 .skills-section {
-    flex: 1;
-    min-width: 320px;
+    flex: 1 1 320px;
+    min-width: 280px;
     max-width: 350px;
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 10px;
     text-align: left;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 
@@ -88,6 +94,76 @@
     text-align: center;
     font-weight: 300;
     line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+    .skills-container {
+        padding: 40px 10px;
+    }
+    .skills-grid {
+        gap: 20px;
+    }
+    .skills-section {
+        min-width: 220px;
+        max-width: 300px;
+        padding: 16px;
+    }
+    .title {
+        font-size: 1.6rem;
+        margin-top: 7vh;
+        margin-bottom: 5vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-container {
+        padding: 30px 5px;
+    }
+    .skills-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .skills-section {
+        min-width: 90vw;
+        max-width: 98vw;
+        padding: 12px;
+        text-align: center;
+    }
+    .title {
+        font-size: 1.3rem;
+        margin-top: 5vh;
+        margin-bottom: 3vh;
+    }
+    .skill-end {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-container {
+        padding: 15px 2px;
+    }
+    .skills-section {
+        min-width: 98vw;
+        max-width: 99vw;
+        padding: 8px;
+        border-radius: 6px;
+    }
+    .title {
+        font-size: 1.1rem;
+        margin-top: 3vh;
+        margin-bottom: 2vh;
+    }
+    .skill-name {
+        font-size: 0.95rem;
+    }
+    .skills-section h3 {
+        font-size: 1.1rem;
+    }
+    .skill-end {
+        font-size: 0.9rem;
+    }
 }
 
 

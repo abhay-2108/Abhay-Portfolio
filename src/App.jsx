@@ -10,6 +10,7 @@ import Skills from './components/skills'
 import Projects from './components/project'
 import Contact from './components/contact'
 import Footer from './components/footer'
+import Chatbot from './components/chatbot';
 import './styles/GlobalStyles.css';
 
 const FadeInSection = ({ children }) => {
@@ -31,7 +32,7 @@ const FadeInSection = ({ children }) => {
 
 const App = () => {
     return (
-        <div>
+        <>
             <Backgroundeffect />
                 <Header />
             <FadeInSection>
@@ -53,7 +54,9 @@ const App = () => {
             <FadeInSection>
                 <Footer />
             </FadeInSection>
-        </div>
+            {/* Place Chatbot at the end so it floats above */}
+            <Chatbot />
+        </>
     );
 };
 

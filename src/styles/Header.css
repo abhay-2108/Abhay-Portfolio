@@ -39,14 +39,14 @@
 
 .name-container .first-letter {
     color: red;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 .name-container .rest-of-name {
     color: white;
-    font-size: 0.8em;
+    font-size: 0.6em;
     vertical-align: middle;
     transition: color 0.3s ease;
 }
@@ -80,7 +80,7 @@ ul a {
     color: white;
     text-decoration: none;
     font-weight: 100;
-    font-size: 130%;
+    font-size: 110%;
     transition: color 0.3s ease;
     padding: 5px 0;
     margin: 0px 40px;

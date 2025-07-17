@@ -46,35 +46,25 @@ const Banner = () => {
     }, []);
 
     return (
-        <div className="banner" id="home">
+        <section className="banner" id="home" aria-label="Hero Banner">
             <div className="greeting-div">
                 <div className="banner-bg">
-                    <img src={Man} alt="" />
-                    {/* <video autoPlay muted loop playsInline className='back-video'>
-                        <source src={Video}/>
-                    </video> */}
+                    <img src={Man} alt="Abhay Tiwari at desk" />
                 </div>
                 <div className="banner-content">
-                    <h2>Hi There!</h2>
-                    <p>
-                        <div className="floating-text" style={{ fontSize: "60px" }}>I'M ABHAY TIWARI</div>
-                        <br />
-                        <br />
-                        I am a <span className="changeText">{displayedText}<span className="cursor">|</span></span> </p>
-                    <p>Passionate about creating
-                        innovative solutions and leveraging technology for real-world impact. </p>
+                    <h2 className="banner-greeting">Hi There!</h2>
+                    <h1 className="floating-text no-wrap">I'm Abhay Tiwari</h1>
+                    <p className="banner-role">
+                        I am a <span className="changeText">{displayedText}<span className="cursor" aria-hidden="true">|</span></span>
+                    </p>
+                    <p className="info">Passionate about creating innovative solutions and leveraging technology for real-world impact.</p>
                     <div className="resumes">
-                        <button className='btn'>
-                            <a className="resume" href="/Abhay's Web Resume.pdf" download="Abhay_Tiwari_Resume.pdf">Web Resume</a>
-                        </button>
-                        <button className='btn'>
-                            <a className="resume" href="/Abhay's AI Resume.pdf" download="Abhay_Tiwari_Resume.pdf">AI Resume</a>
-                        </button>
-
+                        <a className="btn resume" href="/Abhay's Web Resume.pdf" download="Abhay_Tiwari_Resume.pdf" role="button">Web Resume</a>
+                        <a className="btn resume" href="/Abhay's AI Resume.pdf" download="Abhay_Tiwari_Resume.pdf" role="button">AI Resume</a>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

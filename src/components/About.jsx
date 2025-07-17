@@ -40,10 +40,11 @@ const About = () => {
 
                 <motion.div className="content" variants={childVariants}>
                     <p>
-                        I am a passionate and dedicated Computer Science Engineering student at VIT Chennai, specializing in Artificial Intelligence and Machine Learning. 
-                        With a strong foundation in computer science, I am eager to apply my knowledge to solve complex problems. My commitment to continuous learning 
-                        and innovation drives me to contribute to advancements in AI and ML, making a tangible impact. Known for my hardworking nature, I constantly strive 
-                        to expand my skill set and contribute effectively to any team or project.
+                        I’m a passionate and driven Computer Science Engineering student at VIT Chennai, specializing in Artificial Intelligence and Machine Learning. With a solid foundation in computer science principles and hands-on experience in full-stack development, I thrive on building intelligent systems that solve real-world problems.
+
+                        From developing AI-powered dashboards and secure web platforms to deploying machine learning pipelines and agent-based solutions, I’m constantly exploring ways to blend technology with impact. My commitment to continuous learning, clean code practices, and teamwork fuels my ability to contribute effectively in both collaborative and independent settings.
+
+                        Whether it’s crafting scalable web applications or experimenting with cutting-edge AI frameworks, I’m always eager to innovate, learn, and grow.
                     </p>
                     
                     <motion.div variants={childVariants}>
