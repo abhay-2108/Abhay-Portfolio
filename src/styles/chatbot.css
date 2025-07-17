@@ -194,10 +194,11 @@
   .chatbot-window.modern {
     right: 4px;
     bottom: 64px;
-    width: 99vw;
+    width: 92vw;
     height: 65vh;
     min-width: 0;
     border-radius: 12px;
+    left: 4vw;
   }
   .chatbot-toggle {
     right: 8px;
@@ -209,6 +210,37 @@
   .msg-content {
     font-size: 0.97rem;
     padding: 10px 12px;
+  }
+}
+@media (max-width: 400px) {
+  .chatbot-window.modern {
+    width: 96vw;
+    height: 65vh;
+    min-width: 0;
+    right: 2vw;
+    left: 2vw;
+    bottom: 0;
+    border-radius: 0;
+    max-width: 100vw;
+  }
+  .chatbot-toggle {
+    right: 4px;
+    bottom: 4px;
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
+  .chatbot-header {
+    padding: 12px 8px;
+    font-size: 1rem;
+  }
+  .chatbot-input-row {
+    padding: 10px 6px;
+    gap: 4px;
+  }
+  .msg-content {
+    font-size: 0.93rem;
+    padding: 8px 8px;
   }
 }
 

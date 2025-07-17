@@ -3,7 +3,7 @@ import "../styles/Banner.css";
 import Man from "../assets/Profileman.png";
 
 const Banner = () => {
-    const words = ["Deep Learning Engineer", "Frontend Developer", "Full Stack Developer", 'Machine Learning Engineer','Problem Solver'];
+    const words = ["AI Engineer", "Deep Learning Engineer","Deep Learning Specialist", "Full Stack Developer", "Machine Learning Engineer","Problem Solver"];
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
     const [displayedText, setDisplayedText] = useState("");
     const [charIndex, setCharIndex] = useState(0);

@@ -125,8 +125,9 @@
         gap: 15px;
     }
     .skills-section {
-        min-width: 90vw;
-        max-width: 98vw;
+        min-width: 75vw;
+        max-width: 85vw;
+        margin: 0 auto;
         padding: 12px;
         text-align: center;
     }
@@ -145,8 +146,9 @@
         padding: 15px 2px;
     }
     .skills-section {
-        min-width: 98vw;
-        max-width: 99vw;
+        min-width: 85vw;
+        max-width: 92vw;
+        margin: 0 auto;
         padding: 8px;
         border-radius: 6px;
     }

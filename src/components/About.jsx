@@ -18,14 +18,14 @@ const About = () => {
 
     const childVariants = {
         hidden: { opacity: 0, x: 100 },
-        visible: { 
-            opacity: 1, x: 0, 
-            transition: { duration: 1.5, ease: [0.25, 1, 0.5, 1] } 
+        visible: {
+            opacity: 1, x: 0,
+            transition: { duration: 1.5, ease: [0.25, 1, 0.5, 1] }
         }
     };
 
     return (
-        <motion.div 
+        <motion.div
             className="about-section" id="about" ref={ref}
             initial="hidden" animate={isInView ? "visible" : "hidden"} variants={containerVariants}
         >
@@ -40,13 +40,10 @@ const About = () => {
 
                 <motion.div className="content" variants={childVariants}>
                     <p>
-                        I’m a passionate and driven Computer Science Engineering student at VIT Chennai, specializing in Artificial Intelligence and Machine Learning. With a solid foundation in computer science principles and hands-on experience in full-stack development, I thrive on building intelligent systems that solve real-world problems.
-
-                        From developing AI-powered dashboards and secure web platforms to deploying machine learning pipelines and agent-based solutions, I’m constantly exploring ways to blend technology with impact. My commitment to continuous learning, clean code practices, and teamwork fuels my ability to contribute effectively in both collaborative and independent settings.
-
-                        Whether it’s crafting scalable web applications or experimenting with cutting-edge AI frameworks, I’m always eager to innovate, learn, and grow.
+                        I’m a passionate Computer Science student at VIT Chennai, specializing in AI and Machine Learning. With hands-on experience in full-stack development and intelligent systems, I love building real-world solutions that combine technology with impact. From AI dashboards to secure web apps and ML pipelines, I’m always eager to innovate, learn, and grow.
                     </p>
-                    
+
+
                     <motion.div variants={childVariants}>
                         <button className="btn">
                             <a className="resume" href="https://github.com/abhay-2108?tab=repositories" target="_blank">My Works</a>

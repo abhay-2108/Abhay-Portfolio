@@ -159,7 +159,7 @@ const Projects = () => {
       <h2 className="section-title">My Projects</h2>
       <div className="project-filters">
         <button className={`btn ${selectedCategory === "web" ? "active" : ""}`} onClick={() => setSelectedCategory("web")}>Web Projects</button>
-        <button className={`btn ${selectedCategory === "ml" ? "active" : ""}`} onClick={() => setSelectedCategory("ml")}>ML Projects</button>
+        <button className={`btn ${selectedCategory === "ml" ? "active" : ""}`} onClick={() => setSelectedCategory("ml")}>AIML Projects</button>
       </div>
       <div className="projects-grid">
         {allProjects[selectedCategory].map((project, index) => (
