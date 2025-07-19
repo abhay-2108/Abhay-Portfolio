@@ -241,7 +241,7 @@ body {
     }
     
     .navigation-bar {
-        display: none;
+        display: none !important; /* Hidden by default */
         position: fixed;
         top: 60px;
         left: 0;
@@ -258,13 +258,12 @@ body {
         margin: 0;
         overflow: hidden;
         box-sizing: border-box;
-        display: flex; /* Enable flexbox for centering */
         align-items: center; /* Center vertically */
         justify-content: center; /* Center horizontally */
     }
     
     .navigation-bar.responsive {
-        display: flex; /* Use flex instead of block for proper centering */
+        display: flex !important; /* Show only when responsive class is applied */
     }
     
     .navigation-bar ul {
@@ -365,13 +364,13 @@ body {
         height: 50vh; /* Half of mobile screen height */
         max-height: 250px; /* Slightly smaller max height for smaller screens */
         padding: 0; /* Remove padding for proper centering */
-        display: flex; /* Enable flexbox for centering */
+        display: none !important; /* Hidden by default */
         align-items: center; /* Center vertically */
         justify-content: center; /* Center horizontally */
     }
 
     .navigation-bar.responsive {
-        display: flex; /* Use flex instead of block */
+        display: flex !important; /* Show only when responsive class is applied */
     }
 
     .navigation-bar ul li {
