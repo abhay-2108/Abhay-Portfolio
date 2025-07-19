@@ -161,6 +161,9 @@ textarea {
         max-width: 500px;
         margin: 0 auto;
     }
+    .about {
+        font-size: 1.6rem;
+    }
     .msg {
         font-size: 1.2rem;
     }
@@ -184,6 +187,9 @@ textarea {
         width: 98vw;
         max-width: 98vw;
         margin: 0 auto;
+    }
+    .about {
+        font-size: 1.3rem;
     }
     .msg {
         font-size: 1.1rem;
@@ -215,6 +221,9 @@ textarea {
         width: 99vw;
         max-width: 99vw;
         margin: 0 auto;
+    }
+    .about {
+        font-size: 1.1rem;
     }
     .msg {
         font-size: 1rem;

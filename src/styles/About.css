@@ -173,6 +173,9 @@
         font-size: 1rem;
         text-align: justify;
     }
+    .about {
+        font-size: 1.6rem;
+    }
     .cv {
         width: 150px;
         font-size: 0.95rem;
@@ -204,6 +207,9 @@
         font-size: 0.95rem;
         max-width: 98vw;
         text-align: justify;
+    }
+    .about {
+        font-size: 1.3rem;
     }
     .cv {
         width: 120px;
@@ -237,6 +243,9 @@
         line-height: 1.4;
         max-width: 99vw;
         padding: 0 5px;
+    }
+    .about {
+        font-size: 1.1rem;
     }
     .cv {
         width: 100px;

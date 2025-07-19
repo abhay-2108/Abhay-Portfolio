@@ -93,7 +93,36 @@
   to { opacity: 1; }
 }
 
+@media (max-width: 1024px) {
+  .certifications-section {
+    padding: 50px 15px 30px 15px;
+  }
+  .cert-title {
+    font-size: 1.6rem;
+    margin-bottom: 28px;
+  }
+  .cert-grid {
+    gap: 20px;
+  }
+  .cert-card {
+    min-width: 200px;
+    max-width: 320px;
+    padding: 28px 24px 20px 24px;
+  }
+  .cert-card-img {
+    max-width: 140px;
+    max-height: 100px;
+  }
+}
+
 @media (max-width: 768px) {
+  .certifications-section {
+    padding: 40px 10px 25px 10px;
+  }
+  .cert-title {
+    font-size: 1.3rem;
+    margin-bottom: 24px;
+  }
   .cert-grid {
     gap: 16px;
   }
@@ -107,12 +136,13 @@
     max-height: 90px;
   }
 }
+
 @media (max-width: 480px) {
   .certifications-section {
     padding: 30px 2px 20px 2px;
   }
   .cert-title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 18px;
   }
   .cert-card {
