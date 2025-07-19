@@ -248,20 +248,23 @@ body {
         right: 0;
         width: 100%;
         max-width: 100%;
-        height: auto; /* Auto height instead of 100vh */
-        min-height: auto; /* Remove min-height */
+        height: 50vh; /* Half of mobile screen height */
+        max-height: 300px; /* Maximum height to prevent it from being too tall */
         background: #1a1a1a !important; /* Solid background */
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         z-index: 9998;
-        padding: 10px 0; /* Add some padding */
+        padding: 0; /* Remove padding to allow full centering */
         margin: 0;
         overflow: hidden;
         box-sizing: border-box;
+        display: flex; /* Enable flexbox for centering */
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center horizontally */
     }
     
     .navigation-bar.responsive {
-        display: block;
+        display: flex; /* Use flex instead of block for proper centering */
     }
     
     .navigation-bar ul {
@@ -272,9 +275,10 @@ body {
         margin: 0;
         gap: 0;
         align-items: center; /* Center align the list items */
-        justify-content: flex-start; /* Start from top instead of center */
+        justify-content: center; /* Center content vertically */
         overflow: hidden;
-        height: auto; /* Auto height */
+        height: 100%; /* Take full height of parent */
+        display: flex; /* Ensure flexbox is enabled */
     }
     
     .navigation-bar ul li {
@@ -284,6 +288,9 @@ body {
         text-align: center;
         border-bottom: none; /* Remove separator lines */
         overflow: hidden;
+        display: flex; /* Enable flexbox for centering */
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center horizontally */
     }
     
     .navigation-bar ul li:last-child {
@@ -292,7 +299,9 @@ body {
     
     .navigation-bar ul li a {
         font-size: 1rem;
-        display: block;
+        display: flex; /* Use flex for better centering */
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center horizontally */
         padding: 15px 20px;
         color: white;
         font-weight: 500;
@@ -353,14 +362,24 @@ body {
     .navigation-bar {
         top: 55px;
         background: #1a1a1a !important;
-        height: auto; /* Auto height */
-        min-height: auto; /* Remove min-height */
-        padding: 8px 0; /* Slightly less padding for smaller screens */
+        height: 50vh; /* Half of mobile screen height */
+        max-height: 250px; /* Slightly smaller max height for smaller screens */
+        padding: 0; /* Remove padding for proper centering */
+        display: flex; /* Enable flexbox for centering */
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center horizontally */
+    }
+
+    .navigation-bar.responsive {
+        display: flex; /* Use flex instead of block */
     }
 
     .navigation-bar ul li {
         border-bottom: none; /* Remove separator lines */
         overflow: hidden;
+        display: flex; /* Enable flexbox for centering */
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center horizontally */
     }
 
     .navigation-bar ul li a {
@@ -369,6 +388,9 @@ body {
         text-align: center; /* Center align the text */
         overflow: hidden;
         white-space: nowrap;
+        display: flex; /* Use flex for better centering */
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center horizontally */
     }
     
     body {
