@@ -7,13 +7,14 @@ const StarryBackground = () => {
         if (starContainer) {
             // Clear any existing stars to prevent duplication
             starContainer.innerHTML = "";
-            // Create 100 stars for a full-page effect
-            for (let i = 0; i < 100; i++) {
+            // Create 150 stars for a full-page effect
+            for (let i = 0; i < 150; i++) {
                 const star = document.createElement("div");
                 star.className = "star";
-                star.style.top = Math.random() * 100 + "vh";
+                star.style.top = Math.random() * 200 + "vh"; // Cover more height
                 star.style.left = Math.random() * 100 + "vw";
                 star.style.animationDuration = (Math.random() * 3 + 1) + "s";
+                star.style.animationDelay = Math.random() * 2 + "s";
                 starContainer.appendChild(star);
             }
         }
@@ -21,7 +22,15 @@ const StarryBackground = () => {
 
     return (
         <>
-            <div id="star-container"></div>
+            <div id="star-container" style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                width: '100vw',
+                height: '100vh',
+                pointerEvents: 'none',
+                zIndex: 1
+            }}></div>
             
             <div className="floating-shape shape1"></div>
             <div className="floating-shape shape2"></div>

@@ -43,6 +43,7 @@ const Header = () => {
                     <li><a href="#about" onClick={(e) => { e.preventDefault(); handleNavigation("about"); }}>About</a></li>
                     <li><a href="#skills" onClick={(e) => { e.preventDefault(); handleNavigation("skills"); }}>Skills</a></li>
                     <li><a href="#projects" onClick={(e) => { e.preventDefault(); handleNavigation("projects"); }}>Projects</a></li>
+                    <li><a href="#certifications" onClick={(e) => { e.preventDefault(); handleNavigation("certifications"); }}>Certificates</a></li>
                     <li><a href="#contact" onClick={(e) => { e.preventDefault(); handleNavigation("contact"); }}>Contact</a></li>
                 </ul>
             </nav>

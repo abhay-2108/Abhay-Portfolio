@@ -11,12 +11,30 @@ body, html {
 
 
 body {
-    background-image: radial-gradient(2px 2px at 100px 100px, rgba(255,255,255,0.3), transparent),
-                      radial-gradient(1px 1px at 200px 300px, rgba(255,255,255,0.3), transparent),
-                      radial-gradient(2px 2px at 400px 600px, rgba(255,255,255,0.3), transparent),
-                      radial-gradient(1px 1px at 600px 900px, rgba(255,255,255,0.3), transparent),
-                      radial-gradient(2px 2px at 800px 1200px, rgba(255,255,255,0.3), transparent);
-    background-size: cover;
+    background-image: 
+        radial-gradient(2px 2px at 100px 100px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 200px 300px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(2px 2px at 400px 600px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 600px 900px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(2px 2px at 800px 1200px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 300px 1500px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(2px 2px at 500px 1800px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 700px 2100px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(2px 2px at 900px 2400px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 150px 2700px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(2px 2px at 350px 3000px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 550px 3300px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(2px 2px at 750px 3600px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 950px 3900px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(2px 2px at 250px 4200px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 450px 4500px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(2px 2px at 650px 4800px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 850px 5100px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(2px 2px at 50px 5400px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 250px 5700px, rgba(255,255,255,0.3), transparent);
+    background-size: 100% 100%;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
 }
 
 
@@ -28,6 +46,19 @@ body {
     border-radius: 50%;
     opacity: 0.6;
     animation: twinkle 3s infinite alternate ease-in-out;
+    z-index: 1;
+    pointer-events: none;
+}
+
+#star-container {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+    overflow: hidden;
 }
 
 
