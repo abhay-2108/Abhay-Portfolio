@@ -11,7 +11,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%; /* Changed from 100vw to 100% */
+    max-width: 100%;
     z-index: 9999 !important;
     background: #1a1a1a !important; /* Solid dark background for better text visibility */
     backdrop-filter: blur(15px);
@@ -24,6 +25,8 @@
     justify-content: space-between;
     padding: 0 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden; /* Prevent overflow */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .container.scrolled {
@@ -214,6 +217,10 @@ body {
         background: #1a1a1a !important; /* Solid dark background for mobile */
         backdrop-filter: none !important; /* Remove blur effect for solid background */
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Stronger shadow for better definition */
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
     }
     
     .container.scrolled {
@@ -223,12 +230,14 @@ body {
     
     .name-container {
         font-size: 1.2rem;
+        flex: 0 0 auto; /* Don't grow or shrink */
     }
     
     .menu-toggle {
         display: block;
         font-size: 1.4rem;
         background: transparent !important;
+        flex: 0 0 auto; /* Don't grow or shrink */
     }
     
     .navigation-bar {
@@ -238,12 +247,17 @@ body {
         left: 0;
         right: 0;
         width: 100%;
+        max-width: 100%;
+        height: auto; /* Auto height instead of 100vh */
+        min-height: auto; /* Remove min-height */
         background: #1a1a1a !important; /* Solid background */
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         z-index: 9998;
-        padding: 0;
+        padding: 10px 0; /* Add some padding */
         margin: 0;
+        overflow: hidden;
+        box-sizing: border-box;
     }
     
     .navigation-bar.responsive {
@@ -253,17 +267,23 @@ body {
     .navigation-bar ul {
         flex-direction: column;
         width: 100%;
+        max-width: 100%;
         padding: 0;
         margin: 0;
         gap: 0;
         align-items: center; /* Center align the list items */
+        justify-content: flex-start; /* Start from top instead of center */
+        overflow: hidden;
+        height: auto; /* Auto height */
     }
     
     .navigation-bar ul li {
         padding: 0;
         width: 100%;
+        max-width: 100%;
         text-align: center;
         border-bottom: none; /* Remove separator lines */
+        overflow: hidden;
     }
     
     .navigation-bar ul li:last-child {
@@ -278,7 +298,10 @@ body {
         font-weight: 500;
         transition: background-color 0.3s ease;
         width: 100%;
+        max-width: 100%;
         text-align: center; /* Center align the text */
+        overflow: hidden;
+        white-space: nowrap;
     }
     
     .navigation-bar ul li a:hover {
@@ -288,6 +311,7 @@ body {
     
     body {
         margin-top: 60px !important;
+        overflow-x: hidden; /* Prevent horizontal scroll */
     }
 }
 
@@ -299,6 +323,10 @@ body {
         background: #1a1a1a !important; /* Solid dark background for small mobile */
         backdrop-filter: none !important;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
     }
     
     .container.scrolled {
@@ -308,6 +336,7 @@ body {
 
     .name-container {
         font-size: 1.1rem;
+        flex: 0 0 auto;
     }
 
     .first-letter {
@@ -318,25 +347,33 @@ body {
         font-size: 1.3rem;
         padding: 6px;
         background: transparent !important;
+        flex: 0 0 auto;
     }
 
     .navigation-bar {
         top: 55px;
         background: #1a1a1a !important;
+        height: auto; /* Auto height */
+        min-height: auto; /* Remove min-height */
+        padding: 8px 0; /* Slightly less padding for smaller screens */
     }
 
     .navigation-bar ul li {
         border-bottom: none; /* Remove separator lines */
+        overflow: hidden;
     }
 
     .navigation-bar ul li a {
         font-size: 0.95rem;
         padding: 12px 15px;
         text-align: center; /* Center align the text */
+        overflow: hidden;
+        white-space: nowrap;
     }
     
     body {
         margin-top: 55px !important;
+        overflow-x: hidden;
     }
 }
 
