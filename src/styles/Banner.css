@@ -1,9 +1,10 @@
-*{
+.banner * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
 .banner {
     width: 100vw;
     max-width: 100vw;
@@ -16,6 +17,7 @@
     align-items: center;
     justify-content: center;
     background: transparent;
+    margin-top: 0; /* Ensure no top margin interference */
 }
 
 .greeting-div {
