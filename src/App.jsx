@@ -11,6 +11,7 @@ import Projects from './components/project'
 import Contact from './components/contact'
 import Footer from './components/footer'
 import Chatbot from './components/chatbot';
+import Certifications from './components/certifications';
 import './styles/GlobalStyles.css';
 
 const FadeInSection = ({ children }) => {
@@ -47,6 +48,9 @@ const App = () => {
             </FadeInSection>
             <FadeInSection>
                 <Projects />
+            </FadeInSection>
+            <FadeInSection>
+                <Certifications />
             </FadeInSection>
             <FadeInSection>
                 <Contact />

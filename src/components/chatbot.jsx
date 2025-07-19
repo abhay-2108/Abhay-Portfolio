@@ -13,7 +13,8 @@ import {
   tips,
   faq,
   quiz,
-  blogPosts
+  blogPosts,
+  certificates
 } from '../portfolioData';
 
 function getCategoryProjects(category) {
@@ -96,6 +97,33 @@ function getCertificationsList() {
   );
 }
 
+function getCertificateList() {
+  return (
+    <span>
+      <b>Certificates:</b>
+      <ul style={{paddingLeft: 18}}>
+        {certificates.map((c, i) => (
+          <li key={i}><b>{c.title}</b> ({c.organization})</li>
+        ))}
+      </ul>
+    </span>
+  );
+}
+
+function getCertificateDetails(input) {
+  const lower = input.toLowerCase();
+  const found = certificates.find(c => lower.includes(c.title.toLowerCase().split(' ')[0]) || lower.includes(c.title.toLowerCase()));
+  if (found) {
+    return (
+      <span>
+        <b>{found.title}</b> ({found.organization})<br/>
+        {found.description}
+      </span>
+    );
+  }
+  return null;
+}
+
 function getContactLinks() {
   return (
     <span>
@@ -172,6 +200,14 @@ function getProjectList() {
 function getBotResponse(input) {
   const lower = input.toLowerCase();
 
+  // Certificates Q&A
+  if (/certificate|certification|badge/.test(lower)) {
+    // If asking for a specific certificate
+    const certDetail = getCertificateDetails(input);
+    if (certDetail) return certDetail;
+    // Otherwise, list all certificates
+    return getCertificateList();
+  }
   // List of projects (names and links only)
   if (/list (all )?(projects|project)|show (all )?(projects|project)|project list/.test(lower)) {
     return getProjectList();

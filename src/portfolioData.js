@@ -163,8 +163,31 @@ export const aiSkills = [
 ];
 
 export const certifications = [
-  "Coursera AI/ML Specialization",
-  "Google Data Science Certificate",
+  {
+    title: "Coursera AI/ML Specialization",
+    organization: "Coursera",
+    image: "/certificates/ai-ml-specialization.jpg"
+  },
+  {
+    title: "Google Data Science Certificate",
+    organization: "Google",
+    image: "/certificates/google-data-science.jpg"
+  },
+  // Add more certificates as needed
+];
+
+export const certificates = [
+  {
+    title: "GEN AI using IBM Watsonx",
+    organization: "IBM",
+    description: "Completed IBM's GEN AI using IBM Watsonx certification, covering generative AI concepts, Watsonx platform, and practical applications."
+  },
+  {
+    title: "Generative AI using Diffusion Models",
+    organization: "Amazon Web Services",
+    description: "Earned AWS's Generative AI using Diffusion Models certificate, focusing on advanced generative AI techniques and AWS cloud integration."
+  }
+  // Add more certificates as needed
 ];
 
 export const contactInfo = {
@@ -252,6 +275,6 @@ export const generalQuestions = [
     question: "What makes you passionate about AI/ML?",
     answer: "I'm fascinated by the potential of AI/ML to solve real-world problems and create intelligent systems that make a difference in people's lives."
   }
-];
+]; 
 
 export const skills = [...webSkills, ...aiSkills]; 
