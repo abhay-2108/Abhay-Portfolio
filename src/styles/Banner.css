@@ -10,9 +10,10 @@
 
 .banner-container {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 4rem;
-    max-width: 1200px;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3rem;
+    max-width: 1000px;
+    /* Reduced from 1150px */
     width: 100%;
     align-items: center;
 }
@@ -37,7 +38,8 @@
 }
 
 .banner-title {
-    font-size: clamp(3rem, 6vw, 5rem);
+    font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+    /* Reduced from 2.8-4.2rem range */
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 1.5rem;
@@ -75,9 +77,10 @@
 }
 
 .banner-description {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.6);
-    max-width: 500px;
+    max-width: 420px;
+    /* Reduced from 450px */
     margin-bottom: 2.5rem;
 }
 

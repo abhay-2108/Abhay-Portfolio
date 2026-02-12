@@ -15,7 +15,7 @@ const Footer = () => {
                     <a href="#projects">Projects</a>
                     <a href="#contact">Contact</a>
                 </div>
-                <p className="copyright">&copy; 2024 Abhay Tiwari. Crafted with precision.</p>
+                <p className="copyright">&copy; 2026 Abhay Tiwari. Crafted with precision.</p>
             </div>
         </footer>
     );

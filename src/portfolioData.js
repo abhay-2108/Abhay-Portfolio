@@ -3,8 +3,8 @@
 
 export const about = `I'm Abhay Tiwari, a passionate Computer Science Engineering student at VIT Chennai, specializing in Artificial Intelligence and Machine Learning. I love building intelligent systems and full-stack web apps that solve real-world problems.`;
 
-export const aiResume = "/Abhay's AI Resume.pdf";
-export const webResume = "/Abhay's Web Resume.pdf";
+export const aiResume = "/Abhay_AI_Resume.pdf";
+export const webResume = "/Abhay_Web_Resume.pdf";
 export const resumeLink = aiResume; // For backward compatibility if needed
 export const calendarLink = "https://calendly.com/abhay";
 

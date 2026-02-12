@@ -5,10 +5,12 @@
 
 .projects-bento-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2.5rem;
-    margin-bottom: 8rem !important;
-    /* Massive gap to prevent overlap */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Shrink min-width from 320px */
+    gap: 1.5rem;
+    /* Reduced from 2rem */
+    margin-bottom: 4rem !important;
+    /* Reduced from 6rem */
     position: relative;
     z-index: 1;
 }
@@ -17,7 +19,8 @@
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     display: flex;
     flex-direction: column;
-    padding: 2.5rem !important;
+    padding: 1.25rem !important;
+    /* Reduced from 1.75rem */
     text-align: center;
     align-items: center;
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
@@ -34,11 +37,12 @@
 
 .card-image-content {
     width: 100%;
-    height: 240px;
-    /* Fixed height for consistency */
-    margin-bottom: 2rem;
+    height: 150px;
+    /* Reduced from 180px */
+    margin-bottom: 1.25rem;
+    /* Reduced from 1.5rem */
     overflow: hidden;
-    border-radius: 1.5rem;
+    border-radius: 1.2rem;
     background: rgba(255, 255, 255, 0.04);
     display: flex;
     align-items: center;
@@ -73,10 +77,9 @@
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
     color: rgba(255, 255, 255, 0.5);
-    padding: 1.25rem 3.5rem;
-    /* Increased padding */
-    margin: 0.5rem;
-    /* Added margin */
+    padding: 0.75rem 2rem;
+    /* Reduced from 1rem 2.5rem */
+    margin: 0.4rem;
     cursor: pointer;
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);

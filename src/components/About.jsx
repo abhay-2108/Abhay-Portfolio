@@ -3,21 +3,36 @@ import { motion } from 'framer-motion';
 import '../styles/About.css';
 import profile from '../assets/profile.jpg';
 import { FaFileCode, FaBrain } from 'react-icons/fa';
-import * as portfolioData from '../portfolioData';
+import { aiResume, webResume } from '../portfolioData';
 
 const About = () => {
     return (
         <section className="about-section py-32" id="about">
             <div className="container-custom">
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="about-header-group mb-16 text-center"
+                >
+                    <h2 className="section-title text-gradient leading-tight mb-4">About Me</h2>
+                    <div className="tagline-container">
+                        <span className="about-tagline font-space font-bold tracking-[0.2em] md:tracking-[0.4em] uppercase">
+                            Problem Solver &bull; AI Architect &bull; Web Engineer
+                        </span>
+                    </div>
+                </motion.div>
+
                 <div className="about-grid items-center">
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="about-image-wrapper relative"
                     >
-                        <div className="profile-frame relative z-10 glass rounded-[3rem] p-3 overflow-hidden">
+                        <div className="profile-frame relative z-10 glass rounded-[3rem] p-3 overflow-hidden mx-auto">
                             <img src={profile} alt="Abhay Tiwari" className="profile-image rounded-[2.5rem] w-full aspect-square object-cover" />
                             <div className="image-shine"></div>
                         </div>
@@ -25,72 +40,63 @@ const About = () => {
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="about-content-wrapper flex flex-col justify-center"
+                        transition={{ duration: 0.8, delay: 0.3 }}
+                        className="about-content-wrapper flex flex-col justify-center items-center z-10"
                     >
-                        <div className="about-header-group mb-12">
-                            <h2 className="section-title text-gradient text-left leading-tight">About Me</h2>
-                            <div className="tagline-container mt-4">
-                                <span className="about-tagline font-space font-bold tracking-[0.2em] md:tracking-[0.4em] uppercase">
-                                    Problem Solver &bull; AI Architect &bull; Web Engineer
-                                </span>
-                            </div>
-                        </div>
-
-                        <div className="about-card glass p-10 md:p-14 lg:p-14 xl:p-16 rounded-[2.5rem] border border-white/10 relative">
-                            <div className="about-text-container text-left lg:text-left">
-                                <p className="text-white/90 leading-relaxed mb-8">
+                        <div className="about-card glass p-6 rounded-[2.5rem] border border-white/10 relative max-w-[650px]">
+                            <div className="about-text-container text-left relative z-20">
+                                <p className="text-white/90 leading-relaxed mb-3">
                                     I am <span className="text-white font-bold">Abhay Tiwari</span>, an AI-focused engineer passionate about building intelligent systems. Currently pursuing <span className="text-primary font-bold">Computer Science at VIT Chennai</span>, I specialize in bridging the gap between robust software engineering and cutting-edge machine learning.
                                 </p>
-                                <p className="text-white/60 leading-relaxed mb-12">
+                                <p className="text-white/60 leading-relaxed mb-4">
                                     My approach combines <span className="text-secondary font-medium">technical precision</span> with <span className="text-accent font-medium">creative problem-solving</span>. Whether it's training deep learning models or architecting scalable web platforms, I focus on delivering impact through clean code and data-driven insights.
                                 </p>
 
-                                <div className="about-stats grid grid-cols-2 gap-8 md:gap-12 mt-8">
+                                <div className="about-stats grid grid-cols-2 gap-8 md:gap-12 mt-3">
                                     <div className="stat-item border-primary/20">
-                                        <h4 className="text-4xl md:text-5xl font-space font-bold text-gradient mb-2">15+</h4>
+                                        <h4 className="text-3xl md:text-4xl font-space font-bold text-gradient mb-2">15+</h4>
                                         <p className="text-[10px] md:text-sm text-white/40 uppercase tracking-widest font-bold">Complex Projects</p>
                                     </div>
                                     <div className="stat-item border-primary/20">
-                                        <h4 className="text-4xl md:text-5xl font-space font-bold text-gradient mb-2">90%</h4>
+                                        <h4 className="text-3xl md:text-4xl font-space font-bold text-gradient mb-2">90%</h4>
                                         <p className="text-[10px] md:text-sm text-white/40 uppercase tracking-widest font-bold">Model Precision</p>
                                     </div>
                                 </div>
 
-                                <div className="resume-actions-container flex flex-wrap justify-center gap-4 mt-12">
+                                <div className="resume-actions-container flex flex-row flex-nowrap justify-between gap-3 mt-10">
                                     <a
-                                        href={portfolioData.webResume}
+                                        href={webResume}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="resume-download-btn glass group"
+                                        className="resume-download-btn glass group flex-1"
                                     >
-                                        <div className="flex items-center gap-3">
-                                            <div className="icon-box text-primary text-xl transform group-hover:scale-110 transition-transform">
+                                        <div className="flex items-center gap-2">
+                                            <div className="icon-box text-primary text-lg transform group-hover:scale-110 transition-transform">
                                                 <FaFileCode />
                                             </div>
-                                            <div className="flex flex-col items-start">
-                                                <span className="text-[8px] uppercase tracking-[0.2em] text-white/40 font-black mb-0.5">Software Development</span>
-                                                <span className="font-space font-bold text-sm text-white/90 group-hover:text-primary transition-colors">Download Resume</span>
+                                            <div className="flex flex-col items-start overflow-hidden">
+                                                <span className="text-[7px] uppercase tracking-[0.1em] text-white/40 font-black truncate w-full">Software Dev</span>
+                                                <span className="font-space font-bold text-[10px] text-white/90 group-hover:text-primary transition-colors whitespace-nowrap">Download Resume</span>
                                             </div>
                                         </div>
                                     </a>
 
                                     <a
-                                        href={portfolioData.aiResume}
+                                        href={aiResume}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="resume-download-btn glass group"
+                                        className="resume-download-btn glass group flex-1"
                                     >
-                                        <div className="flex items-center gap-3">
-                                            <div className="icon-box text-secondary text-xl transform group-hover:scale-110 transition-transform">
+                                        <div className="flex items-center gap-2">
+                                            <div className="icon-box text-secondary text-lg transform group-hover:scale-110 transition-transform">
                                                 <FaBrain />
                                             </div>
-                                            <div className="flex flex-col items-start">
-                                                <span className="text-[8px] uppercase tracking-[0.2em] text-white/40 font-black mb-0.5">AI & Machine Learning</span>
-                                                <span className="font-space font-bold text-sm text-white/90 group-hover:text-secondary transition-colors">Download Resume</span>
+                                            <div className="flex flex-col items-start overflow-hidden">
+                                                <span className="text-[7px] uppercase tracking-[0.1em] text-white/40 font-black truncate w-full">AI & ML</span>
+                                                <span className="font-space font-bold text-[10px] text-white/90 group-hover:text-secondary transition-colors whitespace-nowrap">Download Resume</span>
                                             </div>
                                         </div>
                                     </a>
