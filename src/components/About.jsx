@@ -66,7 +66,7 @@ const About = () => {
                                     </div>
                                 </div>
 
-                                <div className="resume-actions-container flex flex-row flex-nowrap justify-between gap-3 mt-10">
+                                <div className="resume-actions-container flex flex-wrap md:flex-nowrap justify-between gap-3 mt-10">
                                     <a
                                         href={webResume}
                                         target="_blank"
