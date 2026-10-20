@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaRobot, FaPaperPlane, FaTimes, FaExternalLinkAlt, FaTrash } from 'react-icons/fa';
+import { FaRobot, FaPaperPlane, FaTimes, FaExternalLinkAlt, FaTrash, FaTerminal } from 'react-icons/fa';
 import '../styles/chatbot.css';
-
 import * as portfolioData from '../portfolioData';
 
 const Chatbot = () => {
@@ -10,20 +9,22 @@ const Chatbot = () => {
   const [messages, setMessages] = useState(() => {
     const saved = localStorage.getItem('chat_history');
     return saved ? JSON.parse(saved) : [
-      { text: "Greetings! I'm **Abhay's AI Assistant**. It would be my pleasure to help you explore his professional background, projects, or certifications. How may I assist you today?", type: "bot" }
+      { 
+        text: portfolioData.chatbotKnowledge?.greetings || "Greetings! I'm **Abhay's AI Agentic Assistant**. Ask me about his open-source work, PageFlow, Agent Foundry, or his background.", 
+        type: "bot" 
+      }
     ];
   });
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [lastTopic, setLastTopic] = useState(null);
   const messagesEndRef = useRef(null);
 
-  const suggestions = [
-    "🚀 Top Projects",
-    "💻 Tech Stack",
-    "🎓 Education",
-    "🏆 Certifications",
-    "📥 Download Resume"
+  const suggestions = portfolioData.chatbotKnowledge?.quickPrompts || [
+    "🌟 Open Source Contributions",
+    "🚀 PageFlow Architecture",
+    "🤖 Agent Foundry OS",
+    "🔌 Model Context Protocol (MCP)",
+    "💼 Background & Resume"
   ];
 
   const scrollToBottom = () => {
@@ -39,7 +40,10 @@ const Chatbot = () => {
   }, [messages]);
 
   const clearHistory = () => {
-    const initialMsg = [{ text: "Greetings! I'm **Abhay's AI Assistant**. How may I assist you further?", type: "bot" }];
+    const initialMsg = [{ 
+      text: "Greetings! I'm **Abhay's AI Agentic Assistant**. How may I assist your exploration of his engineering work?", 
+      type: "bot" 
+    }];
     setMessages(initialMsg);
     localStorage.removeItem('chat_history');
   };
@@ -52,19 +56,22 @@ const Chatbot = () => {
     const parts = text.split(/(\*\*.*?\*\*)/g);
     const elements = parts.map((part, i) => {
       if (part.startsWith('**') && part.endsWith('**')) {
-        return <strong key={i}>{part.slice(2, -2)}</strong>;
+        return <strong key={i} className="text-violet-300 font-semibold">{part.slice(2, -2)}</strong>;
       }
       return part;
     });
 
     return (
       <div className="flex flex-col gap-2">
-        <div className="whitespace-pre-line">{elements}</div>
-
-        {/* Render Link Button if present */}
+        <div className="whitespace-pre-line leading-relaxed text-xs sm:text-sm">{elements}</div>
         {msg.link && (
-          <a href={msg.link} target="_blank" rel="noopener noreferrer" className="rich-link-btn">
-            <FaExternalLinkAlt size={12} /> {msg.linkText || "View Detail"}
+          <a
+            href={msg.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono-code font-semibold bg-violet-600/20 text-violet-300 border border-violet-500/30 hover:bg-violet-600/30 w-fit transition-colors mt-1"
+          >
+            <FaExternalLinkAlt size={10} /> {msg.linkText || "View Repository"}
           </a>
         )}
       </div>
@@ -83,91 +90,81 @@ const Chatbot = () => {
       const input = query.toLowerCase().trim();
       let response = { text: "", type: "bot" };
 
-      // Improved matching helper with plural support
       const matches = (keywords) => keywords.some(kw => {
         const regex = new RegExp(`\\b${kw}s?\\b`, 'i');
         return regex.test(input);
       });
 
-      // 1. Core Category Handling First (Highest Priority)
-      if (matches(["project", "work", "build", "portfolio", "made", "application"])) {
-        const webP = portfolioData.projects.filter(p => p.category === 'web').slice(0, 2).map(p => p.title).join(", ");
-        const mlP = portfolioData.projects.filter(p => p.category === 'ml').slice(0, 2).map(p => p.title).join(", ");
-        response.text = `Abhay has architected several high-impact projects. \n\n**AI/ML Highlights:** ${mlP}\n**Web Highlights:** ${webP}\n\nYou can scroll up to the Projects section to see the full details of each!`;
+      // 1. Open Source Contributions
+      if (matches(["open source", "opensource", "pr", "pull request", "docsgpt", "rea", "guardrails", "corsair", "contribution"])) {
+        response.text = portfolioData.chatbotKnowledge?.responses?.openSource || 
+          "Abhay has contributed core optimizations to **arc53/DocsGPT** (100x batched vector ingestion & recursive chunking), **morluto/rea** (APK decoding & Ghidra RISC-V PIE support), **guardrails-ai/guardrails** (@guard_tool governor), and **corsairdev/corsair**.";
+        response.link = "#opensource";
+        response.linkText = "Jump to Open Source Section";
       }
-      else if (matches(["certificate", "certification", "certified", "credential", "license"])) {
-        const cert = [...portfolioData.certificates, ...portfolioData.certifications].find(c =>
-          input.includes(c.title.toLowerCase()) ||
-          (c.organization && input.includes(c.organization.toLowerCase()))
-        );
-
-        if (cert) {
-          response.text = `Certainly! Abhay is professionally certified in **${cert.title}**, awarded by **${cert.organization || 'the respective organization'}**. \n\n${cert.description ? `**Overview:** ${cert.description}` : "This credential validates his advanced skills and commitment to professional excellence."}`;
-          if (cert.link) {
-            response.link = cert.link;
-            response.linkText = "View Credential";
-          }
-        } else {
-          const certList = [...portfolioData.certificates, ...portfolioData.certifications]
-            .map(c => `• **${c.title}** (${c.organization})`)
-            .join('\n');
-          response.text = `Abhay has earned several prestigious certifications:\n\n${certList}\n\nWould you like to know more about any specific one?`;
-        }
+      // 2. PageFlow
+      else if (matches(["pageflow", "notion", "local", "crdt", "ollama", "air-gapped", "electron"])) {
+        response.text = portfolioData.chatbotKnowledge?.responses?.pageflow || 
+          "**PageFlow** is a 100% private, local-first Notion workspace with on-device streaming AI via Ollama (DeepSeek-R1 / Llama 3.2), SQLite WAL mode, and Yjs CRDT local synchronization. Backed by 113 automated unit tests.";
+        response.link = "https://github.com/abhay-2108/PageFlow";
+        response.linkText = "Open PageFlow on GitHub";
       }
-      else if (matches(["education", "college", "vit", "university", "degree", "study", "cse"])) {
-        response.text = `Abhay is a **Computer Science Engineering** student at **VIT Chennai**, specializing in AI & Machine Learning. He maintains a high GPA and a strong passion for research and practical implementation.`;
+      // 3. Agent Foundry
+      else if (matches(["agent foundry", "foundry", "personas", "dag", "swarm", "multi-agent"])) {
+        response.text = portfolioData.chatbotKnowledge?.responses?.agentFoundry || 
+          "**Agent Foundry** is a local-first autonomous multi-agent operating system featuring 10 specialist personas, 40 standardized modular skills, a 3-tier persistent SQLite WAL memory engine, and FastMCP tool servers.";
+        response.link = "https://github.com/abhay-2108/agent-foundry";
+        response.linkText = "Open Agent Foundry on GitHub";
       }
-      else if (matches(["skill", "tech", "stack", "tool", "know", "expert", "pro", "master"])) {
-        const ai = portfolioData.aiSkills.slice(0, 5).map(s => s.name).join(", ");
-        response.text = `Abhay possesses a robust technical stack!\n\n**AI/ML:** ${ai}\n**Full-Stack:** React, Node.js, Express, and modern styling tools.\n\nHe specializes in building intelligent agentic systems.`;
+      // 4. Model Context Protocol (MCP)
+      else if (matches(["mcp", "model context protocol", "fastmcp"])) {
+        response.text = portfolioData.chatbotKnowledge?.responses?.mcp || 
+          "Abhay is deeply active in the **Model Context Protocol (MCP)** ecosystem: contributed session component refresh to the official Python SDK, built the MCP Multi-Agent Air Quality reasoning system, and runs FastMCP servers locally.";
       }
-      // 2. Specific Project Recognition
+      // 5. General Projects
+      else if (matches(["project", "work", "build", "portfolio", "application", "software"])) {
+        const topProjects = portfolioData.projects.slice(0, 3).map(p => `• **${p.title}**: ${p.subtitle}`).join("\n");
+        response.text = `Abhay's flagship projects include:\n\n${topProjects}\n\nYou can explore and filter each project in the Projects section!`;
+        response.link = "#projects";
+        response.linkText = "Explore All Projects";
+      }
+      // 6. Certifications
+      else if (matches(["cert", "certificate", "certification", "watsonx", "aws", "ibm", "google"])) {
+        const certList = portfolioData.certifications.map(c => `• **${c.title}** (${c.organization})`).join("\n");
+        response.text = `Abhay holds verified certifications including:\n\n${certList}`;
+        response.link = "#certifications";
+        response.linkText = "View Certifications";
+      }
+      // 7. Education & Background
+      else if (matches(["education", "college", "vit", "university", "degree", "study", "cse", "background", "who"])) {
+        response.text = portfolioData.chatbotKnowledge?.responses?.background || 
+          "Abhay Tiwari is an AI Systems Engineer and B.Tech Computer Science student (Specialization in AI & ML) at **VIT Chennai**.";
+      }
+      // 8. Tech Stack
+      else if (matches(["skill", "stack", "tech", "tool", "language", "python", "typescript"])) {
+        response.text = "Abhay's stack spans:\n\n- **Autonomous Agents & LLMs:** Model Context Protocol (MCP), FastMCP, Multi-Agent DAGs, Ollama, LangGraph, RAG\n- **Deep Learning:** PyTorch, ONNX, Autoencoders, LSTMs\n- **Local-First Systems:** SQLite WAL, Yjs CRDTs, Vector Caching\n- **Core Engineering:** Python 3.11+, TypeScript, React 18, Vite, Electron, Docker";
+        response.link = "#skills";
+        response.linkText = "View Tech Taxonomy";
+      }
+      // 9. Resume
+      else if (matches(["resume", "cv", "download"])) {
+        response.text = "You can download Abhay's tailored resumes directly:\n\n• **AI/ML Resume:** Focused on agent swarms, MCP, and deep learning.\n• **Full-Stack Resume:** Focused on local-first runtimes, React, and systems engineering.";
+        response.link = portfolioData.personalInfo.aiResume;
+        response.linkText = "Download AI/ML Resume (PDF)";
+      }
+      // 10. Contact
+      else if (matches(["contact", "email", "hire", "reach", "message", "linkedin", "github"])) {
+        response.text = `You can reach Abhay directly at **${portfolioData.personalInfo.email}** or connect on LinkedIn at **${portfolioData.personalInfo.linkedin}**.`;
+        response.link = portfolioData.personalInfo.linkedin;
+        response.linkText = "Open LinkedIn Profile";
+      }
       else {
-        const specificProject = portfolioData.projects.find(p =>
-          input.includes(p.title.toLowerCase()) ||
-          p.title.toLowerCase().split(' ').every(word => input.includes(word))
-        );
-
-        if (specificProject) {
-          response.text = `Abhay developed **${specificProject.title}**, a ${specificProject.category === 'ml' ? 'AI/ML' : 'Web'} project. \n\n**Overview:** ${specificProject.description}`;
-          response.link = specificProject.link;
-          response.linkText = "View Codebase";
-          setLastTopic(specificProject);
-        }
-        // 3. Question/FAQ Loop
-        else {
-          const allQuestions = [...portfolioData.generalQuestions, ...portfolioData.faq];
-          const foundQuestion = allQuestions.find(q => {
-            const qLower = q.question.toLowerCase();
-            return qLower.includes(input) || input.includes(qLower.replace(/[?!]/g, "").trim());
-          });
-
-          if (foundQuestion) {
-            response.text = foundQuestion.answer;
-          }
-          // 4. Other categories
-          else if (matches(["hello", "hi", "hey", "greetings"])) {
-            response.text = "Greetings! I am **Abhay's Assistant**. It's a pleasure to meet you. Please feel free to ask about his **projects**, **skills**, or **certifications**.";
-          } else if (matches(["about", "who", "abhay", "him", "he", "background"])) {
-            response.text = `**${portfolioData.about}** Currently, he is focused on advancing his research in AI and Deep Learning at VIT Chennai.`;
-          } else if (matches(["resume", "cv", "download", "link"])) {
-            response.text = "You may conveniently download Abhay's professional resumes from the **'About Me'** section of this portfolio.";
-          } else if (matches(["contact", "email", "hire", "reach", "connect"])) {
-            response.text = `You can reach Abhay directly at **${portfolioData.contactInfo.email}**. His social profiles are linked at the bottom of the page!`;
-          } else if (matches(["tip", "advice", "learn", "start"])) {
-            const randomTip = portfolioData.tips[Math.floor(Math.random() * portfolioData.tips.length)];
-            response.text = `Abhay's professional advice is: "${randomTip}"`;
-          } else if (matches(["thanks", "thank", "cool", "great", "nice", "awesome"])) {
-            response.text = "You're very welcome! I'm here to help. Is there anything else you'd like to know about Abhay?";
-          } else {
-            response.text = "I apologize, but I'm not quite sure I understand. Could you please specify if you'd like to know more about Abhay's **projects**, **academic background**, or **certifications**?";
-          }
-        }
+        response.text = "I'm specialized in answering questions regarding Abhay's **Open Source Contributions**, **PageFlow**, **Agent Foundry**, **Model Context Protocol (MCP)**, or his **technical credentials**.";
       }
 
       setMessages((prev) => [...prev, response]);
       setIsTyping(false);
-    }, 800);
+    }, 500);
   };
 
   return (
@@ -186,77 +183,95 @@ const Chatbot = () => {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="chatbot-window-v2"
+            className="chatbot-window-v2 glass"
           >
-            <div className="chatbot-header-v2 flex items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <div className="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)] animate-pulse"></div>
-                <h3 className="font-space font-bold text-sm tracking-wide uppercase whitespace-nowrap">AI Assistant</h3>
+            {/* Header */}
+            <div className="chatbot-header">
+              <div className="flex items-center gap-2">
+                <span className="p-1.5 rounded-lg bg-violet-500/20 text-violet-400">
+                  <FaTerminal size={12} />
+                </span>
+                <div>
+                  <h4 className="font-space font-bold text-sm text-white">Portfolio AI Copilot</h4>
+                  <span className="text-[10px] text-emerald-400 flex items-center gap-1 font-mono-code">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" /> FastMCP Knowledge
+                  </span>
+                </div>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1">
                 <button
                   onClick={clearHistory}
+                  className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-colors"
                   title="Clear Chat History"
-                  className="text-white/40 hover:text-red-400 transition-colors"
                 >
                   <FaTrash size={12} />
                 </button>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="text-white/40 hover:text-white transition-colors"
+                  className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-colors"
+                  title="Close Assistant"
                 >
                   <FaTimes size={14} />
                 </button>
               </div>
             </div>
 
-            <div className="chatbot-messages-v2 scrollbar-hide">
-              {messages.map((msg, idx) => (
-                <div key={idx} className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`msg-bubble ${msg.type === 'user' ? 'user-msg' : 'bot-msg'}`}>
-                    {renderMessageContent(msg)}
-                  </div>
+            {/* Suggestions */}
+            <div className="p-2 bg-[#09090e] border-b border-white/5 flex gap-1.5 overflow-x-auto no-scrollbar">
+              {suggestions.map((s, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => handleSend(s)}
+                  className="whitespace-nowrap px-2.5 py-1 rounded-lg text-[11px] font-mono-code bg-white/[0.04] hover:bg-violet-600/20 text-slate-300 hover:text-violet-300 border border-white/[0.06] hover:border-violet-500/30 transition-all flex-shrink-0"
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+
+            {/* Messages Body */}
+            <div className="chatbot-body">
+              {messages.map((msg, index) => (
+                <div
+                  key={index}
+                  className={`message-bubble ${msg.type === 'bot' ? 'bot-bubble' : 'user-bubble'}`}
+                >
+                  {renderMessageContent(msg)}
                 </div>
               ))}
               {isTyping && (
-                <div className="flex justify-start">
-                  <div className="bot-msg">
-                    <div className="flex gap-1.5 py-1">
-                      <span className="typing-dot"></span>
-                      <span className="typing-dot"></span>
-                      <span className="typing-dot"></span>
-                    </div>
+                <div className="message-bubble bot-bubble">
+                  <div className="typing-indicator">
+                    <span />
+                    <span />
+                    <span />
                   </div>
                 </div>
               )}
               <div ref={messagesEndRef} />
             </div>
 
-            <div className="suggestion-chips-container scrollbar-hide">
-              {suggestions.map((suggestion, idx) => (
-                <button
-                  key={idx}
-                  className="suggestion-chip"
-                  onClick={() => handleSend(suggestion.replace(/[🚀💻🎓🏆📥]/g, "").trim())}
-                >
-                  {suggestion}
-                </button>
-              ))}
-            </div>
-
-            <div className="chatbot-input-area-v2">
+            {/* Input Form */}
+            <form
+              onSubmit={(e) => { e.preventDefault(); handleSend(); }}
+              className="chatbot-footer"
+            >
               <input
                 type="text"
+                placeholder="Ask about Abhay's projects, PRs, stack..."
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-                placeholder="How can I assist you?"
-                className="chatbot-input-field-v2"
+                className="chatbot-input font-mono-code text-xs"
               />
-              <button onClick={() => handleSend()} className="chatbot-send-btn-v2" aria-label="Send Message">
-                <FaPaperPlane size={14} />
+              <button
+                type="submit"
+                disabled={!inputValue.trim()}
+                className="chatbot-send-btn disabled:opacity-40"
+                aria-label="Send query"
+              >
+                <FaPaperPlane size={12} />
               </button>
-            </div>
+            </form>
           </motion.div>
         )}
       </AnimatePresence>

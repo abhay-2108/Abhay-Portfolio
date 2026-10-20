@@ -1,114 +1,151 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import '../styles/About.css';
+import { FaFileDownload, FaBrain, FaTerminal, FaShieldAlt, FaBolt, FaGraduationCap } from 'react-icons/fa';
 import profile from '../assets/profile.jpg';
-import { FaFileCode, FaBrain } from 'react-icons/fa';
-import { aiResume, webResume } from '../portfolioData';
+import { personalInfo, about, aiResume, webResume } from '../portfolioData';
+import '../styles/About.css';
 
 const About = () => {
-    return (
-        <section className="about-section py-32" id="about">
-            <div className="container-custom">
-                <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    className="about-header-group mb-16 text-center"
-                >
-                    <h2 className="section-title text-gradient leading-tight mb-4">About Me</h2>
-                    <div className="tagline-container">
-                        <span className="about-tagline font-space font-bold tracking-[0.2em] md:tracking-[0.4em] uppercase">
-                            Problem Solver &bull; AI Architect &bull; Web Engineer
-                        </span>
-                    </div>
-                </motion.div>
+  const highlights = [
+    {
+      icon: <FaTerminal className="text-violet-400" />,
+      title: "Autonomous Agent Architectures",
+      desc: "Engineering multi-agent systems with Model Context Protocol (MCP), 3-tier persistent memory, and deterministic DAG validation."
+    },
+    {
+      icon: <FaShieldAlt className="text-cyan-400" />,
+      title: "Local-First & Air-Gapped AI",
+      desc: "Building desktop ecosystems (PageFlow) that stream local models (Ollama) with SQLite WAL and CRDTs with zero external cloud telemetry."
+    },
+    {
+      icon: <FaBolt className="text-amber-400" />,
+      title: "100x High-Throughput Ingestion",
+      desc: "Optimizing enterprise vector stores, batched insertions, and boundary-aware token splitters in production RAG systems (DocsGPT)."
+    }
+  ];
 
-                <div className="about-grid items-center">
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="about-image-wrapper relative"
-                    >
-                        <div className="profile-frame relative z-10 glass rounded-[3rem] p-3 overflow-hidden mx-auto">
-                            <img src={profile} alt="Abhay Tiwari" className="profile-image rounded-[2.5rem] w-full aspect-square object-cover" />
-                            <div className="image-shine"></div>
-                        </div>
-                        <div className="profile-blob absolute -inset-10 bg-primary/20 blur-[100px] -z-10 rounded-full animate-pulse"></div>
-                    </motion.div>
+  return (
+    <section className="about-section py-24 relative" id="about">
+      <div className="container-custom">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="section-header text-center mb-16"
+        >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-violet-500/10 text-violet-400 border border-violet-500/20 mb-4">
+            <FaBrain /> Engineering Focus & Principles
+          </div>
+          <h2 className="section-title text-gradient inline-block">
+            About Abhay Tiwari
+          </h2>
+          <p className="section-subtitle mt-4 text-slate-400 max-w-2xl mx-auto">
+            Computer Science Engineer specializing in Artificial Intelligence & Machine Learning at VIT Chennai.
+          </p>
+        </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
-                        className="about-content-wrapper flex flex-col justify-center items-center z-10"
-                    >
-                        <div className="about-card glass p-6 rounded-[2.5rem] border border-white/10 relative max-w-[650px]">
-                            <div className="about-text-container text-left relative z-20">
-                                <p className="text-white/90 leading-relaxed mb-3">
-                                    I am <span className="text-white font-bold">Abhay Tiwari</span>, an AI-focused engineer passionate about building intelligent systems. Currently pursuing <span className="text-primary font-bold">Computer Science at VIT Chennai</span>, I specialize in bridging the gap between robust software engineering and cutting-edge machine learning.
-                                </p>
-                                <p className="text-white/60 leading-relaxed mb-4">
-                                    My approach combines <span className="text-secondary font-medium">technical precision</span> with <span className="text-accent font-medium">creative problem-solving</span>. Whether it's training deep learning models or architecting scalable web platforms, I focus on delivering impact through clean code and data-driven insights.
-                                </p>
-
-                                <div className="about-stats grid grid-cols-2 gap-8 md:gap-12 mt-3">
-                                    <div className="stat-item border-primary/20">
-                                        <h4 className="text-3xl md:text-4xl font-space font-bold text-gradient mb-2">15+</h4>
-                                        <p className="text-[10px] md:text-sm text-white/40 uppercase tracking-widest font-bold">Complex Projects</p>
-                                    </div>
-                                    <div className="stat-item border-primary/20">
-                                        <h4 className="text-3xl md:text-4xl font-space font-bold text-gradient mb-2">90%</h4>
-                                        <p className="text-[10px] md:text-sm text-white/40 uppercase tracking-widest font-bold">Model Precision</p>
-                                    </div>
-                                </div>
-
-                                <div className="resume-actions-container flex flex-wrap md:flex-nowrap justify-between gap-3 mt-10">
-                                    <a
-                                        href={webResume}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="resume-download-btn glass group flex-1"
-                                    >
-                                        <div className="flex items-center gap-2">
-                                            <div className="icon-box text-primary text-lg transform group-hover:scale-110 transition-transform">
-                                                <FaFileCode />
-                                            </div>
-                                            <div className="flex flex-col items-start overflow-hidden">
-                                                <span className="text-[7px] uppercase tracking-[0.1em] text-white/40 font-black truncate w-full">Software Dev</span>
-                                                <span className="font-space font-bold text-[10px] text-white/90 group-hover:text-primary transition-colors whitespace-nowrap">Download Resume</span>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <a
-                                        href={aiResume}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="resume-download-btn glass group flex-1"
-                                    >
-                                        <div className="flex items-center gap-2">
-                                            <div className="icon-box text-secondary text-lg transform group-hover:scale-110 transition-transform">
-                                                <FaBrain />
-                                            </div>
-                                            <div className="flex flex-col items-start overflow-hidden">
-                                                <span className="text-[7px] uppercase tracking-[0.1em] text-white/40 font-black truncate w-full">AI & ML</span>
-                                                <span className="font-space font-bold text-[10px] text-white/90 group-hover:text-secondary transition-colors whitespace-nowrap">Download Resume</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 blur-[140px] -z-0"></div>
-                        </div>
-                    </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Profile Image & Quick Card */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-5 flex flex-col items-center"
+          >
+            <div className="relative group max-w-sm w-full">
+              <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-cyan-600 rounded-3xl blur-xl opacity-25 group-hover:opacity-40 transition duration-500" />
+              <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#0d0d14] p-3">
+                <img
+                  src={profile}
+                  alt={personalInfo.name}
+                  className="w-full aspect-square object-cover rounded-xl"
+                  onError={(e) => {
+                    // Fallback to Profileman if profile.jpg fails
+                    e.currentTarget.src = "/Profileman.png";
+                  }}
+                />
+                
+                {/* Overlay Card Details */}
+                <div className="mt-4 p-4 rounded-xl bg-white/[0.03] border border-white/5 space-y-2">
+                  <div className="flex items-center gap-2 text-xs font-mono-code text-violet-300">
+                    <FaGraduationCap size={14} className="text-cyan-400" />
+                    <span>VIT Chennai • B.Tech CSE (AI & ML)</span>
+                  </div>
+                  <div className="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-white/5">
+                    <span>Active GitHub Footprint:</span>
+                    <span className="font-mono-code font-bold text-emerald-400">{personalInfo.stats.repositories} Repositories</span>
+                  </div>
                 </div>
+              </div>
             </div>
-        </section>
-    );
+          </motion.div>
+
+          {/* Narrative & Highlights */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-7 flex flex-col"
+          >
+            <div className="glass-card rounded-2xl p-6 sm:p-8 mb-6">
+              <p className="text-slate-200 text-base sm:text-lg leading-relaxed mb-4">
+                {about}
+              </p>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                My approach focuses on engineering real reliability into AI: eliminating cloud telemetry leaks with local runtimes, safeguarding agent tools with boundary governors, and accelerating data ingestion throughput at scale.
+              </p>
+            </div>
+
+            {/* Core Architectural Pillars */}
+            <div className="space-y-3 mb-8">
+              {highlights.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-violet-500/30 transition-colors"
+                >
+                  <div className="p-2.5 rounded-lg bg-white/5 mt-0.5">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h4 className="font-space font-bold text-sm text-white mb-1">
+                      {item.title}
+                    </h4>
+                    <p className="text-xs text-slate-400 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Resume Downloads */}
+            <div className="flex flex-wrap gap-4 items-center">
+              <a
+                href={aiResume}
+                target="_blank"
+                rel="noreferrer"
+                className="px-5 py-2.5 rounded-xl font-semibold text-xs bg-violet-600 hover:bg-violet-500 text-white shadow-md shadow-violet-600/20 transition-all flex items-center gap-2"
+              >
+                <FaFileDownload /> Download AI/ML Resume
+              </a>
+              <a
+                href={webResume}
+                target="_blank"
+                rel="noreferrer"
+                className="px-5 py-2.5 rounded-xl font-semibold text-xs bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-all flex items-center gap-2"
+              >
+                <FaFileDownload /> Download Full-Stack Resume
+              </a>
+            </div>
+
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default About;

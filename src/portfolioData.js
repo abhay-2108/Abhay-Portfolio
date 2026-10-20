@@ -1,286 +1,288 @@
-// Dynamic Portfolio Data (single source of truth)
-// To add/remove projects, skills, certifications, or contact info, just update this file.
+// Dynamic Portfolio Data (Single Source of Truth)
+// Built for Abhay Tiwari - AI Engineer & Agentic Workflows
 
-export const about = `I'm Abhay Tiwari, a passionate Computer Science Engineering student at VIT Chennai, specializing in Artificial Intelligence and Machine Learning. I love building intelligent systems and full-stack web apps that solve real-world problems.`;
+export const personalInfo = {
+  name: "Abhay Tiwari",
+  role: "AI Engineer & Agentic Systems Architect",
+  tagline: "Architecting Autonomous Agent Swarms, Local-First AI & High-Throughput Systems",
+  location: "VIT Chennai, India",
+  education: "B.Tech in Computer Science Engineering (Specialization in AI & ML), VIT Chennai",
+  status: "Available for AI Engineering, Agentic Workflows & System Roles",
+  email: "abhaytiwari0821@gmail.com",
+  github: "https://github.com/abhay-2108",
+  linkedin: "https://www.linkedin.com/in/abhay-tiwari2108/",
+  calendar: "https://calendly.com/abhay",
+  aiResume: "/Abhay_AI_Resume.pdf",
+  webResume: "/Abhay_Web_Resume.pdf",
+  stats: {
+    repositories: "77+",
+    skillsCatalog: "40+",
+    openSourceImpact: "100x Speedup",
+    agentPersonas: "10"
+  }
+};
 
-export const aiResume = "/Abhay_AI_Resume.pdf";
-export const webResume = "/Abhay_Web_Resume.pdf";
-export const resumeLink = aiResume; // For backward compatibility if needed
-export const calendarLink = "https://calendly.com/abhay";
+export const about = `I'm Abhay Tiwari, an AI Systems Engineer and Open-Source Contributor pursuing Computer Science with an AI & Machine Learning specialization at VIT Chennai. I design and build production-grade autonomous agent ecosystems, local-first zero-cloud intelligent workspaces, and high-performance retrieval architectures. My work spans the Model Context Protocol (MCP), CRDT-backed distributed local storage, AI runtime guardrails, and deep learning systems.`;
 
-export const projects = [
-  // Web Projects
+export const aiResume = personalInfo.aiResume;
+export const webResume = personalInfo.webResume;
+export const resumeLink = personalInfo.aiResume;
+export const calendarLink = personalInfo.calendar;
+
+// High-Impact Open Source Contributions
+export const openSourceContributions = [
   {
-    title: "Bluestock IPO Tracker",
-    category: "web",
-    description: "A full-stack IPO tracking web app that enables users to track upcoming, ongoing, and listed IPOs. Features include admin-controlled company registration, document uploads, and protected routes.",
-    details: "Built with React, Tailwind CSS, Django, PostgreSQL, and JWT authentication. Includes a secure admin panel for uploading DRHP/RHP documents and managing listings.",
-    link: "https://github.com/abhay-2108/Bluestock-IPO-Web-App-Internship",
+    repo: "arc53/DocsGPT",
+    org: "DocsGPT (Production RAG & GenAI Platform)",
+    title: "Batched Vector Store Ingestion & Recursive Token Chunking",
+    prNumber: "#2505",
+    prLink: "https://github.com/arc53/DocsGPT/pull/2505",
+    status: "Merged",
+    badge: "100x Ingestion Speedup",
+    description: "Re-engineered core ingestion pipeline from sequential single-chunk network calls into configurable batched payloads, achieving 100x acceleration (75s down to 0.75s for 500 chunks). Implemented semantic recursive token splitter with cl100k encoding and 0 fractured words across boundaries.",
+    impact: "99.0% I/O reduction, zero semantic phrase truncation, 41 unit tests passing.",
+    tags: ["RAG", "Vector Databases", "Python", "Performance Optimization", "Tiktoken"]
   },
   {
-    title: "Healthcare Management System",
-    category: "web",
-    description: "A secure, scalable healthcare management web app using Node.js, Express.js, and EJS, integrating patient records, efficient appointment scheduling, documentation, financial transactions, real-time communication, and an AI chatbot for emergency guidance.",
-    details: "Built a healthcare management system with Node.js, Express.js, EJS, HTML, CSS, JavaScript, and an AI chatbot (Google API integration).",
-    link: "https://github.com/abhay-2108/Healthcare-Management-for-Doctors",
+    repo: "morluto/rea",
+    org: "REA (Reverse Engineering Assistant & Agentic Analysis)",
+    title: "APK Resource Table Multi-Locale Decode & Ghidra RISC-V PIE Support",
+    prNumber: "#4804, #4811",
+    prLink: "https://github.com/morluto/rea/pull/4804",
+    status: "Merged & Active",
+    badge: "Binary Agent Tooling",
+    description: "Engineered single-pass multi-locale Android string table extraction eliminating redundant APK decoding passes and temporary disk I/O. Added RISC-V ELF32/64 Position-Independent Executable (PIE) target admission boundaries in the Ghidra decompiler bridge.",
+    impact: "Reduced decode cycle time from ~45s to single pass; expanded RISC-V Linux distribution architecture coverage.",
+    tags: ["TypeScript", "Ghidra", "Reverse Engineering", "MCP Tools", "Android Internals"]
   },
   {
-    title: "Basic Banking System",
-    category: "web",
-    description: "A robust banking system that supports secure, real-time transaction operations with comprehensive security protocols and a reliable MySQL database.",
-    details: "Developed with Express.js, Node.js, and MySQL, ensuring secure, efficient banking transactions and robust data integrity.",
-    link: "https://github.com/abhay-2108/Basic-Banking-System",
+    repo: "guardrails-ai/guardrails",
+    org: "Guardrails AI (AI Safety & Policy Enforcement)",
+    title: "@guard_tool Decorator & ToolGuard Runtime Agent Governor",
+    prNumber: "#1529",
+    prLink: "https://github.com/guardrails-ai/guardrails/pull/1529",
+    status: "Completed",
+    badge: "OWASP LLM07 / LLM08",
+    description: "Architected @guard_tool decorator and ToolGuard execution boundary manager for autonomous tool-calling agents. Mitigates Insecure Plugin Design (OWASP LLM07) and Excessive Agency (OWASP LLM08) with synchronous/asynchronous schema validation and OpenTelemetry tracing.",
+    impact: "Centralized tool execution telemetry, 6 automated fail-action strategies, 100% test coverage.",
+    tags: ["AI Safety", "Agent Governance", "OpenTelemetry", "Python", "Tool Validation"]
   },
   {
-    title: "E-Commerce Website",
-    category: "web",
-    description: "Built with HTML5, CSS3, and JavaScript, this site emphasizes modern design and smooth transitions. It’s hosted on GitHub Pages and optimized for cross-device compatibility, ensuring a fast, engaging user experience.",
-    details: "A fully responsive e-commerce website offering a seamless online shopping experience with an intuitive UI that lets users easily browse products, manage their shopping cart, and navigate the site effortlessly.",
-    link: "https://github.com/abhay-2108/E-Commerce-Website",
+    repo: "corsairdev/corsair",
+    org: "Corsair (Human-In-The-Loop Agent Execution)",
+    title: "Modify-and-Approve Human-In-The-Loop Permission System",
+    prNumber: "#291",
+    prLink: "https://github.com/corsairdev/corsair/pull/291",
+    status: "Merged",
+    badge: "HITL Governance",
+    description: "Built the 'Modify and Approve' workflow enabling human operators to inspect, edit, and correct pending tool payloads and API arguments inside the Studio UI prior to execution while preserving backward-compatible SQLite audit state.",
+    impact: "Eliminated blind agent execution hazards with zero-breaking-schema persistence.",
+    tags: ["Human-In-The-Loop", "TypeScript", "React", "SQLite", "Agent Governance"]
   },
   {
-    title: "Car Finder Web App",
-    category: "web",
-    description: "A responsive car browsing platform built with React and Node.js. It enables users to search, filter, and save favorite vehicles in a wishlist using local storage.",
-    details: "Implemented search filters, dynamic content rendering, and responsive UI using React.js, Node.js, and custom CSS. Designed for both desktop and mobile experiences.",
-    link: "https://github.com/abhay-2108/Car-Finder-Web-App",
-  },
-  // ML/AI Projects
-  {
-    title: "Fraud Detection System",
-    category: "ml",
-    description: "A deep learning-based credit card fraud detection system using an autoencoder neural network, developed in Python with Keras/TensorFlow. Achieved a training loss of 0.2362, validation loss of 0.1302, and set a reconstruction error threshold of 0.380976166091332 to effectively identify anomalous transactions.",
-    details: "A deep learning-based credit card fraud detection system that leverages autoencoder neural networks to learn the inherent patterns of legitimate transactions.",
-    link: "https://github.com/abhay-2108/Credit-Card-Fraud-Detection-Using-Autoencoders",
-  },
-  {
-    title: "Real-Time Logistics ML Pipeline",
-    category: "ml",
-    description: "An end-to-end ML pipeline designed to analyze real-time logistics data. It predicts anomaly scores, fuel consumption, risk levels, and maintenance probability using streamed data.",
-    details: "Built using Apache Kafka, Flask APIs, and classification models. The dashboard offers live updates, raw data views, and interactive visualization tools.",
-    link: "https://github.com/abhay-2108/Real-Time-Logistics-ML-Pipeline",
-  },
-  {
-    title: "Data Preprocessing AI Agent",
-    category: "ml",
-    description: "A LangChain-powered AI agent that automates dataset preprocessing through natural language input. It performs tasks like imputation, encoding, scaling, and outputs a cleaned dataset and summary report.",
-    details: "Built using LangChain, FAISS, and vector storage. Generates explainable pipelines and PDF reports for transparency.",
-    link: "https://github.com/abhay-2108/Data-Preprocessing-AI-Agent",
-  },
-  {
-    title: "Real-Time YouTube Analytics Dashboard",
-    category: "ml",
-    description: "A real-time analytics tool using YouTube Data API and machine learning for engagement rate classification and sentiment analysis of video comments.",
-    details: "Built using Logistic Regression, TF-IDF vectorization, and React frontend. Features dynamic video input and real-time publishing metrics.",
-    link: "https://github.com/abhay-2108/Real-Time-Social-Media-Analysis",
-  },
-  {
-    title: "Stock Market Prediction",
-    category: "ml",
-    description: "Developed an advanced system to predict stock prices by leveraging machine learning and deep learning techniques for market trend analysis.",
-    details: "Implemented with Random Forest and ANN models, ensuring robust, accurate stock price forecasting.",
-    link: "https://github.com/abhay-2108/Stock-Prediction-using-Random-Forest-and-ANN",
-  },
-  {
-    title: "Movie Recommendation System",
-    category: "ml",
-    description: "A content-based movie recommendation system that analyzes movie data using advanced NLP techniques to extract semantic features and user preferences.",
-    details: "Built with Scikit-learn, NLP, Flask, HTML, and CSS, ensuring a responsive and intuitive user interface.",
-    link: "https://github.com/abhay-2108/Movie-Recommandation-System",
-  },
-  {
-    title: "SMS Spam Detection",
-    category: "ml",
-    description: "Implements an SMS spam detection system that employs comprehensive text preprocessing, TF-IDF vectorization, and a Multinomial Naive Bayes classifier to accurately identify spam messages with 97.29% accuracy.",
-    details: "Developed in Python with Flask API, ensuring robust and efficient spam detection with user-friendly interface.",
-    link: "https://github.com/abhay-2108/SMS-Spam-Detection",
-  },
-  {
-    title: "Breast Cancer Prediction",
-    category: "ml",
-    description: "A machine learning solution for breast cancer prediction employing Support Vector Classifier and Regressor, leveraging comprehensive feature extraction and model evaluation techniques.",
-    details: "Implemented in Python using Scikit-learn and Pandas with data preprocessing, feature selection, and model tuning.",
-    link: "https://github.com/abhay-2108/Breast-Cancer-Prediction",
-  },
-  {
-    title: "AI Powered Resume Analyzer",
-    category: "ml",
-    description: "An AI-powered Resume Analyzer and ATS tool that leverages Google Gemini AI, Flask, and PyMuPDF for efficient text extraction and intelligent analysis.",
-    details: "Developed in Python with Flask, integrating NLP libraries and ML models for accurate resume parsing and scoring.",
-    link: "https://github.com/abhay-2108/abhay-2108-AI-Powered-Resume-Analyzer-ATS",
+    repo: "modelcontextprotocol/python-sdk",
+    org: "Anthropic / Model Context Protocol (Official Python SDK)",
+    title: "Session Component Eviction on Re-registration in ClientSessionGroup",
+    prNumber: "#3716",
+    prLink: "https://github.com/modelcontextprotocol/python-sdk/pull/3716",
+    status: "Completed",
+    badge: "Protocol Invariants",
+    description: "Resolved tool namespace collisions and orphaned tool registrations in ClientSessionGroup during dynamic session refresh. Implemented component eviction and guarded exit stack teardowns with 100% branch and statement coverage.",
+    impact: "Guaranteed protocol stability for long-lived multi-server MCP client connections.",
+    tags: ["Model Context Protocol", "FastMCP", "AsyncIO", "Python SDK"]
   }
 ];
 
-export const webSkills = [
-  // Frontend
-  { category: 'Frontend', name: 'HTML5', level: 95 },
-  { category: 'Frontend', name: 'CSS3', level: 90 },
-  { category: 'Frontend', name: 'JavaScript', level: 90 },
-  { category: 'Frontend', name: 'Bootstrap', level: 85 },
-  { category: 'Frontend', name: 'Tailwind CSS', level: 90 },
-  { category: 'Frontend', name: 'React.js', level: 90 },
-  { category: 'Frontend', name: 'NextJS', level: 90 },
-  { category: 'Frontend', name: 'Angular', level: 85 },
-  { category: 'Frontend', name: 'Redux', level: 85 },
-  { category: 'Frontend', name: 'React Native', level: 80 },
-  { category: 'Frontend', name: 'EJS', level: 70 },
-  { category: 'Frontend', name: 'Figma (UI/UX)', level: 75 },
-  // Backend & Languages
-  { category: 'Backend & Languages', name: 'Node.js', level: 80 },
-  { category: 'Backend & Languages', name: 'Express.js', level: 75 },
-  { category: 'Backend & Languages', name: 'RESTful APIs', level: 80 },
-  { category: 'Backend & Languages', name: 'JWT Auth', level: 75 },
-  // Databases & Tools
-  { category: 'Databases & Tools', name: 'MySQL', level: 80 },
-  { category: 'Databases & Tools', name: 'PostgreSQL', level: 75 },
-  { category: 'Databases & Tools', name: 'MongoDB', level: 80 },
-  { category: 'Databases & Tools', name: 'Supabase', level: 70 },
-  { category: 'Databases & Tools', name: 'Docker', level: 75 },
-  { category: 'Databases & Tools', name: 'Git', level: 85 },
-  { category: 'Databases & Tools', name: 'GitHub', level: 85 },
-  { category: 'Databases & Tools', name: 'Apache Kafka', level: 70 },
-  // Other Skills
-  { category: 'Other Skills', name: 'Team Collaboration & Agile Dev', level: 85 },
-  { category: 'Other Skills', name: 'Communication & Problem Solving', level: 85 },
-  { category: 'Other Skills', name: 'Data Structures & Algorithms (DSA)', level: 80 },
+// Featured Projects (Easily editable - user can manually add/remove)
+export const projects = [
+  {
+    id: "pageflow",
+    title: "PageFlow",
+    category: "agentic",
+    subtitle: "Local-First Notion Workspace with On-Device AI Engine",
+    description: "A fluid, 100% private desktop workspace engineered with Electron 33 and React 18. Combines block-based document editing with SQLite Write-Ahead Logging (WAL), Yjs CRDT real-time local sync, and native on-device streaming LLM inference via Ollama.",
+    details: "Zero-cloud telemetry and air-gapped security. Run local models like DeepSeek-R1, Qwen 2.5, and Llama 3.2 without sending any data off your hardware. Validated with 113 automated unit tests.",
+    metrics: "113 Tests Passed • 100% Air-Gapped • Sub-10ms Input Latency",
+    tags: ["Electron 33", "React 18", "Ollama", "SQLite WAL", "Yjs CRDTs", "TypeScript"],
+    link: "https://github.com/abhay-2108/PageFlow",
+    featured: true
+  },
+  {
+    id: "agent-foundry",
+    title: "Agent Foundry",
+    category: "agentic",
+    subtitle: "Local-First Workspace & Operating System for Autonomous AI Agents",
+    description: "Production-grade multi-agent platform equipping AI coding assistants with 10 specialized agent personas, 40 standardized operational skills, a 3-tier persistent memory engine (SQLite WAL), and FastMCP tool servers.",
+    details: "Features declarative multi-agent DAG workflows, BM25 + dense vector ranking, safe subprocess execution with AST parsing, and zero external cloud telemetry.",
+    metrics: "10 Agent Personas • 40 Skills • 3 FastMCP Servers • 3-Tier Memory",
+    tags: ["Multi-Agent DAGs", "FastMCP", "SQLite WAL", "Python", "Vector Search", "AST Parser"],
+    link: "https://github.com/abhay-2108/agent-foundry",
+    featured: true
+  },
+  {
+    id: "mcp-air-quality",
+    title: "MCP Multi-Agent Air Quality System",
+    category: "ai",
+    subtitle: "Deep Learning & Model Context Protocol Environmental Reasoning",
+    description: "Multi-agent environmental intelligence platform connecting four specialized neural networks through the Model Context Protocol (MCP). Coordinates pollutant forecasting, satellite imagery classification, vehicle emission analysis, and health risk estimation.",
+    details: "Exposes AQI LSTM forecasters, CNN image classifiers, and ONNX models as standard MCP tools so LLM agents can autonomously chain multimodal reasoning pipelines.",
+    metrics: "4 Neural Networks • MCP Protocol • ONNX Runtime • Multimodal",
+    tags: ["Model Context Protocol", "Keras LSTM", "CNN", "ONNX", "Python", "FastMCP"],
+    link: "https://github.com/abhay-2108/MCP-Powered-Multi-Agent-Air-Quality-Reasoning-System",
+    featured: true
+  },
+  {
+    id: "vectracache",
+    title: "VectraCache",
+    category: "systems",
+    subtitle: "High-Throughput Semantic Vector Caching Engine",
+    description: "A low-latency vector cache designed to minimize LLM inference costs and reduce redundant vector database queries through semantic similarity matching and tiered in-memory indexing.",
+    details: "Implements adaptive threshold clustering, LRU cache eviction policies, and serialization optimizations for high-concurrency agent workflows.",
+    metrics: "Sub-millisecond Hit Latency • Semantic Similarity • Inference Reduction",
+    tags: ["Python", "Vector Databases", "Caching", "Semantic Search", "FastAPI"],
+    link: "https://github.com/abhay-2108/VectraCache",
+    featured: true
+  },
+  {
+    id: "secure-face-liveness",
+    title: "Secure Face Liveness Suite",
+    category: "ai",
+    subtitle: "Computer Vision Anti-Spoofing & Liveness Detection",
+    description: "An anti-spoofing verification engine detecting 2D photographic attacks, replay screen simulations, and 3D mask presentations in real-time biometric verification flows.",
+    details: "Combines texture analysis, micro-expression tracking, and depth feature extraction for enterprise identity workflows.",
+    metrics: "Real-time Verification • 3 Attack Modes Detected • Edge Compatible",
+    tags: ["Computer Vision", "Deep Learning", "TypeScript", "Biometrics", "PyTorch"],
+    link: "https://github.com/abhay-2108/Secure-Face-Liveness-Suite",
+    featured: false
+  },
+  {
+    id: "data-preprocessing-agent",
+    title: "Data Preprocessing AI Agent",
+    category: "ai",
+    subtitle: "Autonomous Natural Language Dataset Pipeline",
+    description: "An autonomous agent that accepts natural language dataset cleaning commands, generates reproducible transformations (imputation, encoding, scaling), and outputs verifiable data hygiene reports.",
+    details: "Built with LangChain, FAISS vector indexing, and automated report synthesis for data science workflows.",
+    metrics: "Automated Data Cleaning • Zero-Leakage Transforms • PDF Auditing",
+    tags: ["LangChain", "Python", "FAISS", "Data Engineering", "Scikit-learn"],
+    link: "https://github.com/abhay-2108/Data-Preprocessing-AI-Agent",
+    featured: false
+  }
 ];
 
-export const aiSkills = [
-  // Backend & Languages
-  { category: 'Backend & Languages', name: 'Python', level: 90 },
-  { category: 'Backend & Languages', name: 'Java', level: 80 },
-  { category: 'Backend & Languages', name: 'C', level: 90 },
-  { category: 'Backend & Languages', name: 'C++', level: 90 },
-  { category: 'Backend & Languages', name: 'Flask', level: 75 },
-  { category: 'Backend & Languages', name: 'Django', level: 80 },
-  // AI & ML
-  { category: 'AI & ML', name: 'Machine Learning', level: 85 },
-  { category: 'AI & ML', name: 'Deep Learning', level: 80 },
-  { category: 'AI & ML', name: 'NLP (Natural Language Processing)', level: 80 },
-  { category: 'AI & ML', name: 'TensorFlow', level: 75 },
-  { category: 'AI & ML', name: 'PyTorch', level: 70 },
-  { category: 'AI & ML', name: 'Scikit-learn', level: 80 },
-  { category: 'AI & ML', name: 'LangChain & Agentic AI', level: 85 },
-  { category: 'AI & ML', name: 'LLMs (Large Language Models)', level: 80 },
-  { category: 'AI & ML', name: 'RAG Pipelines', level: 75 },
-  { category: 'AI & ML', name: 'Vector Databases', level: 75 },
-  // Other Skills
-  { category: 'Other Skills', name: 'Prompt Engineering', level: 80 },
+// Technical Taxonomy & Skills (Modern Bento Grid Structure)
+export const technicalSkills = [
+  {
+    category: "Autonomous Agents & LLMs",
+    description: "Building production agent swarms, tool protocols, and reasoning loops",
+    skills: [
+      { name: "Model Context Protocol (MCP)", level: "Advanced", highlight: true },
+      { name: "FastMCP & JSON-RPC", level: "Advanced", highlight: true },
+      { name: "Multi-Agent DAG Workflows", level: "Advanced", highlight: true },
+      { name: "Local LLM Streaming (Ollama)", level: "Advanced", highlight: true },
+      { name: "LangChain / LangGraph", level: "Advanced", highlight: false },
+      { name: "RAG & Vector Retrieval", level: "Advanced", highlight: true },
+      { name: "Agent Safety & Guardrails", level: "Advanced", highlight: true },
+      { name: "Prompt Architecture", level: "Advanced", highlight: false }
+    ]
+  },
+  {
+    category: "Machine Learning & Deep Learning",
+    description: "Model design, neural networks, computer vision, and evaluation",
+    skills: [
+      { name: "PyTorch & TensorFlow", level: "Advanced", highlight: true },
+      { name: "ONNX Runtime & Optimization", level: "Proficient", highlight: true },
+      { name: "LSTM & Time-Series Forecasting", level: "Advanced", highlight: false },
+      { name: "CNNs & Computer Vision", level: "Proficient", highlight: false },
+      { name: "Autoencoders & Anomaly Detection", level: "Advanced", highlight: true },
+      { name: "Scikit-Learn & Feature Pipelines", level: "Advanced", highlight: false },
+      { name: "Statistical Hypothesis Testing", level: "Proficient", highlight: false }
+    ]
+  },
+  {
+    category: "Local-First & Data Systems",
+    description: "Resilient persistence, offline-first sync, and caching layers",
+    skills: [
+      { name: "SQLite WAL Mode", level: "Advanced", highlight: true },
+      { name: "Yjs CRDTs & Local Sync", level: "Advanced", highlight: true },
+      { name: "Vector Databases (FAISS, Chroma)", level: "Advanced", highlight: true },
+      { name: "PostgreSQL & MySQL", level: "Advanced", highlight: false },
+      { name: "Semantic Vector Caching", level: "Proficient", highlight: true },
+      { name: "Apache Kafka Streaming", level: "Proficient", highlight: false }
+    ]
+  },
+  {
+    category: "Systems & Full-Stack Core",
+    description: "Robust application runtimes, APIs, and responsive frontends",
+    skills: [
+      { name: "Python 3.11+", level: "Advanced", highlight: true },
+      { name: "TypeScript & JavaScript (ES6+)", level: "Advanced", highlight: true },
+      { name: "React 18 & Vite", level: "Advanced", highlight: true },
+      { name: "Electron Desktop Runtimes", level: "Proficient", highlight: true },
+      { name: "FastAPI, Express & Django", level: "Advanced", highlight: false },
+      { name: "Docker & Container Architecture", level: "Proficient", highlight: false },
+      { name: "Git Plumbing & CI/CD", level: "Advanced", highlight: false }
+    ]
+  }
 ];
+
+// Backward compatibility export for existing components
+export const webSkills = technicalSkills[3].skills.map(s => ({ category: "Frontend", name: s.name, level: 90 }));
+export const aiSkills = [...technicalSkills[0].skills, ...technicalSkills[1].skills].map(s => ({ category: "AI & ML", name: s.name, level: 90 }));
+export const skills = [...webSkills, ...aiSkills];
 
 export const certifications = [
   {
-    title: "Coursera AI/ML Specialization",
-    organization: "Coursera",
-    image: "/certificates/ai-ml-specialization.jpg"
-  },
-  {
-    title: "Google Data Science Certificate",
-    organization: "Google",
-    image: "/certificates/google-data-science.jpg"
-  },
-  // Add more certificates as needed
-];
-
-export const certificates = [
-  {
     title: "GEN AI using IBM Watsonx",
     organization: "IBM",
-    description: "Completed IBM's GEN AI using IBM Watsonx certification, covering generative AI concepts, Watsonx platform, and practical applications."
+    description: "Enterprise foundation models, prompt engineering, and generative AI deployment using IBM Watsonx.",
+    badge: "Verified Credential",
+    year: "2024"
   },
   {
     title: "Generative AI using Diffusion Models",
-    organization: "Amazon Web Services",
-    description: "Earned AWS's Generative AI using Diffusion Models certificate, focusing on advanced generative AI techniques and AWS cloud integration."
+    organization: "Amazon Web Services (AWS)",
+    description: "Generative AI architectures, latent diffusion systems, and cloud-scale model operationalization on AWS.",
+    badge: "Verified Credential",
+    year: "2024"
+  },
+  {
+    title: "AI/ML Engineering Specialization",
+    organization: "Coursera",
+    description: "Deep supervised learning, neural network tuning, regularization, and optimization algorithms.",
+    badge: "Specialization",
+    year: "2024"
+  },
+  {
+    title: "Google Data Science Professional",
+    organization: "Google",
+    description: "Statistical computing, exploratory data analysis, data hygiene, and reproducible analytic pipelines.",
+    badge: "Professional Certificate",
+    year: "2024"
   }
-  // Add more certificates as needed
 ];
 
 export const contactInfo = {
-  email: "abhaytiwari0821@gmail.com",
-  linkedin: "https://www.linkedin.com/in/abhay-tiwari-814051290/",
-  github: "https://github.com/abhay-2108"
+  email: personalInfo.email,
+  linkedin: personalInfo.linkedin,
+  github: personalInfo.github,
+  calendar: personalInfo.calendar
 };
 
-export const tips = [
-  "Start with Python and basic statistics.",
-  "Practice on real datasets from Kaggle.",
-  "Understand the math behind ML algorithms.",
-  "Build projects to apply your knowledge.",
-  "Read research papers and follow AI news."
-];
-
-export const faq = [
-  { question: "What is machine learning?", answer: "Machine learning is a subset of AI that enables systems to learn from data and improve over time without being explicitly programmed." },
-  { question: "What is deep learning?", answer: "Deep learning is a type of machine learning that uses neural networks with many layers to model complex patterns in data." },
-  // ... Add more FAQs
-];
-
-export const quiz = [
-  {
-    question: "What is supervised learning?",
-    options: ["Learning with labeled data", "Learning without labels", "Learning by reinforcement"],
-    answer: 0
-  },
-  {
-    question: "Which library is commonly used for deep learning in Python?",
-    options: ["NumPy", "TensorFlow", "Pandas"],
-    answer: 1
-  },
-  // ... Add more quiz questions
-];
-
-export const blogPosts = [
-  {
-    title: "Building an AI-powered Resume Analyzer",
-    link: "https://yourblog.com/ai-resume-analyzer",
-    date: "2024-05-01",
-    summary: "How I built an AI-powered tool to analyze and score resumes using NLP and ML."
-  },
-  // ... Add more blog posts
-];
-
-export const generalQuestions = [
-  {
-    question: "What is your background?",
-    answer: "I'm a Computer Science Engineering student at VIT Chennai, specializing in Artificial Intelligence and Machine Learning. I have hands-on experience in full-stack development and AI/ML projects."
-  },
-  {
-    question: "What kind of projects have you worked on?",
-    answer: "I've built a variety of projects including web applications, AI/ML models, data science pipelines, and intelligent dashboards. My portfolio includes both web and AI/ML projects."
-  },
-  {
-    question: "Which programming languages are you most comfortable with?",
-    answer: "I'm most comfortable with Python, JavaScript, C, C++, and Java."
-  },
-  {
-    question: "What are your strongest technical skills?",
-    answer: "My strongest skills are in AI/ML, Deep Learning, Python, React.js, Node.js, and full-stack web development."
-  },
-  {
-    question: "Do you have experience working in teams?",
-    answer: "Yes, I have collaborated on several team projects, both in academic and internship settings, using Agile methodologies and Git for version control."
-  },
-  {
-    question: "How do you keep your skills up to date?",
-    answer: "I regularly take online courses, participate in hackathons, read research papers, and build new projects to stay current with technology trends."
-  },
-  {
-    question: "What are your career goals?",
-    answer: "I aim to become a leading AI/ML engineer, contributing to impactful projects in artificial intelligence, and to keep learning and innovating in the tech space."
-  },
-  {
-    question: "How can I contact you?",
-    answer: "You can reach me via email at abhaytiwari0821@gmail.com, or connect with me on LinkedIn or GitHub (links are in the Contact section)."
-  },
-  {
-    question: "Can I see your resume?",
-    answer: "Absolutely! You can view or download my resume from the Resume section or ask the chatbot for it."
-  },
-  {
-    question: "What makes you passionate about AI/ML?",
-    answer: "I'm fascinated by the potential of AI/ML to solve real-world problems and create intelligent systems that make a difference in people's lives."
+// Chatbot Knowledge Base - Informed by authentic GitHub and LinkedIn activity
+export const chatbotKnowledge = {
+  greetings: "Greetings! I'm **Abhay's AI Agentic Assistant**. Ask me about his open-source contributions to DocsGPT and REA, his local-first app PageFlow, the Agent Foundry ecosystem, or his research in AI systems.",
+  quickPrompts: [
+    "🌟 Open Source Contributions",
+    "🚀 PageFlow Architecture",
+    "🤖 Agent Foundry OS",
+    "🔌 Model Context Protocol (MCP)",
+    "💼 Background & Resume"
+  ],
+  responses: {
+    openSource: "**Abhay is an active Open Source Contributor:**\n\n- **arc53/DocsGPT (#2505 - Merged):** Accelerated vector store ingestion by **100x** (from 75s to 0.75s for 500 chunks) using batched vector payloads and implemented semantic recursive token chunking.\n- **morluto/rea (#4804 - Merged, #4811):** Optimized Android APK multi-locale decoding and added RISC-V ELF32/64 Position-Independent Executable (PIE) admission boundaries to the Ghidra decompiler bridge.\n- **guardrails-ai/guardrails (#1529):** Implemented `@guard_tool` decorator and `ToolGuard` boundary governor preventing OWASP LLM07/LLM08 vulnerabilities.\n- **corsairdev/corsair (#291 - Merged):** Built the Modify-and-Approve human-in-the-loop permission flow for AI agents in Studio UI.\n- **modelcontextprotocol/python-sdk (#3716):** Fixed component eviction and orphaned tool leaks in `ClientSessionGroup`.",
+    pageflow: "**PageFlow** is an open-source, local-first Notion alternative created by Abhay:\n\n- **100% Zero-Cloud Architecture:** Zero external telemetry; all data resides strictly on the user's local disk.\n- **Native On-Device AI Engine:** Streams local models (**DeepSeek-R1, Qwen 2.5, Llama 3.2**) through Ollama.\n- **High-Performance Storage:** Powered by **SQLite Write-Ahead Logging (WAL)** and **Yjs CRDTs** for conflict-free local state synchronization.\n- **Quality Tested:** Backed by 113 automated unit tests.",
+    agentFoundry: "**Agent Foundry** is a local-first autonomous multi-agent operating system created by Abhay:\n\n- **10 Specialist Personas:** (Lead Orchestrator, Fullstack Engineer, Security Red Teamer, Code Quality Auditor, etc.)\n- **40 Standardized Modular Skills:** Covering orchestration, software engineering, RAG, and AI safety.\n- **3-Tier Memory Engine:** SQLite WAL-backed working, episodic, and semantic memory.\n- **FastMCP Protocol:** Exposes AST parsing, bash execution, and vector search over JSON-RPC.",
+    mcp: "**Abhay has deep hands-on expertise with the Model Context Protocol (MCP):**\n\n- Contributed component eviction & group session refresh to the official **modelcontextprotocol/python-sdk**.\n- Built **MCP Multi-Agent Air Quality System**, exposing 4 neural network models as standard MCP tools.\n- Implemented 3 FastMCP servers within **Agent Foundry** for secure filesystem, subprocess, and memory operations.",
+    background: "**Abhay Tiwari** is a Computer Science Engineering student at **VIT Chennai** specializing in Artificial Intelligence and Machine Learning. He focuses on autonomous multi-agent architectures, local-first AI systems, and high-performance developer tooling."
   }
-];
-
-export const skills = [...webSkills, ...aiSkills]; 
+};

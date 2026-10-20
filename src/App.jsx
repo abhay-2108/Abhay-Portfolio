@@ -1,23 +1,23 @@
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
-import './styles/fade.css'
+import './styles/fade.css';
 import Backgroundeffect from './components/backgroundeffect';
 import Header from './components/Header';
 import Banner from './components/Banner';
 import About from './components/About';
-import Skills from './components/skills'
-// import Carousel from './components/carousel'
-import Projects from './components/project'
-import Contact from './components/contact'
-import Footer from './components/footer'
-import Chatbot from './components/chatbot';
+import OpenSource from './components/OpenSource';
+import Projects from './components/project';
+import Skills from './components/skills';
 import Certifications from './components/certifications';
+import Contact from './components/contact';
+import Footer from './components/footer';
+import Chatbot from './components/chatbot';
 import './styles/GlobalStyles.css';
 
 const FadeInSection = ({ children }) => {
     const { ref, inView } = useInView({
-        threshold: 0.2, 
-        triggerOnce: false, 
+        threshold: 0.1, 
+        triggerOnce: true, 
     });
 
     return (
@@ -30,37 +30,45 @@ const FadeInSection = ({ children }) => {
     );
 };
 
-
 const App = () => {
     return (
-        <>
+        <div className="min-h-screen bg-[#070709] text-slate-100 selection:bg-violet-500/30 selection:text-violet-200">
             <Backgroundeffect />
-                <Header />
+            <Header />
+            
             <FadeInSection>
                 <Banner />
             </FadeInSection>
+
             <FadeInSection>
                 <About />
             </FadeInSection>
-            <Skills />
+
             <FadeInSection>
-                {/* <Carousel /> */}
+                <OpenSource />
             </FadeInSection>
+
             <FadeInSection>
                 <Projects />
             </FadeInSection>
+
+            <FadeInSection>
+                <Skills />
+            </FadeInSection>
+
             <FadeInSection>
                 <Certifications />
             </FadeInSection>
+
             <FadeInSection>
                 <Contact />
             </FadeInSection>
-            <FadeInSection>
-                <Footer />
-            </FadeInSection>
-            {/* Place Chatbot at the end so it floats above */}
+
+            <Footer />
+
+            {/* Interactive Portfolio Copilot */}
             <Chatbot />
-        </>
+        </div>
     );
 };
 
