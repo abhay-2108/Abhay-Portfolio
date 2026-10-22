@@ -68,7 +68,7 @@ const MobileMenu = ({ open, onClose, links, profile }) => {
           <Monogram />
           <span className="brand__text">
             abhay tiwari
-            <small>AI SYSTEMS ENGINEER</small>
+            <small>{profile.role.toUpperCase()}</small>
           </span>
         </a>
         <button

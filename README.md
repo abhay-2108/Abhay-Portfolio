@@ -1,6 +1,6 @@
-# Abhay Tiwari — AI Systems Portfolio
+# Abhay Tiwari — AI Engineer Portfolio
 
-A portfolio for **Abhay Tiwari, AI Systems Engineer**, built around a simple thesis: the model is one dependency; the runtime around it is the product.
+A portfolio for **Abhay Tiwari, AI Engineer**, built around a simple thesis: the model is one dependency; the runtime around it is the product.
 
 The site is a 60/40 dossier of intelligence-layer and systems-layer work, not a project gallery.
 

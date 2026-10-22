@@ -10,7 +10,7 @@ const Thesis = () => (
         <figure className="portrait">
           <img
             src={profilePhoto}
-            alt="Abhay Tiwari, AI systems engineer"
+            alt="Abhay Tiwari, AI engineer"
             width="900"
             height="1200"
             loading="lazy"

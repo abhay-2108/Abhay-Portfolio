@@ -1,6 +1,6 @@
 export const profile = {
   name: "Abhay Tiwari",
-  role: "AI Systems Engineer",
+  role: "AI Engineer",
   location: "Chennai, IN",
   timezone: "IST",
   availability: "Open to AI roles",
@@ -22,7 +22,7 @@ export const navLinks = [
 ];
 
 export const hero = {
-  eyebrow: "AI Systems Engineer",
+  eyebrow: "AI Engineer",
   heading: {
     before: "I build the ",
     emphasis: "system",
@@ -63,7 +63,7 @@ export const about = {
     emphasis: "everything around it.",
   },
   paragraphs: [
-    "I’m an AI systems engineer. My work sits between a model and a real job: tool protocols, memory hierarchies, retrieval pipelines, execution boundaries, and the evals that show whether any of it works. I care about systems that run locally, fail safely, and hold up under real use.",
+    "I’m an AI engineer. My work sits between a model and a real job: tool protocols, memory hierarchies, retrieval pipelines, execution boundaries, and the evals that show whether any of it works. I care about systems that run locally, fail safely, and hold up under real use.",
     "I’ve contributed upstream to DocsGPT, Guardrails AI, Corsair, REA, and the official MCP Python SDK. I also build Agent Foundry, CapForge, BeliefState, and PageFlow.",
   ],
   principles: [
