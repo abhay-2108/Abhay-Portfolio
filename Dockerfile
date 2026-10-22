@@ -1,32 +1,19 @@
-# Stage 1: Build React Frontend
-FROM node:18 AS build
-WORKDIR /Portfolio
+# Build the Vite site
+FROM node:20-alpine AS build
 
-# Copy package.json and package-lock.json first to leverage Docker caching
+WORKDIR /app
+
 COPY package.json package-lock.json ./
-
-# Install dependencies with forced clean cache to avoid corruption issues
-RUN npm cache clean --force && npm install --legacy-peer-deps
+RUN npm ci
 
 COPY . .
-
-# Ensure esbuild does not interfere
-RUN rm -rf node_modules/.cache/esbuild
-
 RUN npm run build
 
-# Stage 2: Setup Flask Backend
-FROM python:3.10
-WORKDIR /Portfolio
+# Serve the static build
+FROM nginx:1.27-alpine
 
-# Copy built frontend from the previous stage
-COPY --from=build /Portfolio/dist /Portfolio/frontend
+COPY --from=build /app/dist /usr/share/nginx/html
 
-# Install Python dependencies
-RUN pip install flask flask_cors python-dotenv
+EXPOSE 80
 
-COPY . .
-
-# Expose Flask port
-EXPOSE 5000
-CMD ["python", "app.py"]
+CMD ["nginx", "-g", "daemon off;"]

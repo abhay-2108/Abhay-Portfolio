@@ -1,5 +1,5 @@
 {
-  "name": "porfolio-website",
+  "name": "abhay-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,24 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
-    "@google/generative-ai": "^0.24.1",
     "@tailwindcss/vite": "^4.0.1",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "framer-motion": "^12.4.1",
-    "gsap": "^3.12.7",
-    "nodemailer": "^6.10.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-icons": "^5.4.0",
-    "react-intersection-observer": "^9.16.0",
-    "react-tsparticles": "^2.12.2",
-    "swiper": "^11.2.1",
-    "tailwindcss": "^4.0.1",
-    "tsparticles": "^3.8.1",
-    "tsparticles-engine": "^2.12.0"
+    "tailwindcss": "^4.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

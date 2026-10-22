@@ -1,52 +1,111 @@
-# 🚀 Portfolio Website
-A personal portfolio website built using **React.js + Vite**, showcasing my skills, projects, and experience.
+# Abhay Tiwari — AI Systems Portfolio
+
+A portfolio for **Abhay Tiwari, AI Systems Engineer**, built around a simple thesis: the model is one dependency; the runtime around it is the product.
+
+The site is a 60/40 dossier of intelligence-layer and systems-layer work, not a project gallery.
 
 ---
 
-## 📌 Features
-✅ Modern UI/UX with smooth animations  
-✅ Fully responsive design  
-✅ Optimized for performance and SEO   
-✅ Dynamic project showcase  
-✅ Contact easily with direct message
+## What is in the site
+
+- **4 flagship systems:** Agent Foundry, Indra Energy Platform, Cortex Enterprise, and VectraCache.
+- **4 compact projects:** PageFlow, ComplianceAI, Logistics ML Pipeline, and YouTube Q&A Agent.
+- **2 Altiora Labs products:** CapForge and BeliefState.
+- **10 featured upstream PRs** across 5 repositories, with GitHub-accurate `Merged`, `Open`, `Closed`, and `Superseded` states.
+- **7 sections:** hero, thesis, systems, labs, upstream ledger, capability matrix, and contact.
+
+All visible content is sourced from [`src/data/portfolio.js`](./src/data/portfolio.js). Edit that file first when changing copy, links, projects, or ledger entries.
 
 ---
 
-## 🛠 Tech Stack
-- **Frontend:** React.js, Vite, JavaScript, HTML, CSS
+## Stack
+
+- React 18 + Vite 6
+- Plain CSS with design tokens, custom reveal motion, and branded scrollbars
+- Static build served by Nginx in production
+- No backend, analytics, or contact form; contact uses `mailto:` and clipboard copy
 
 ---
 
-## 🚀 Installation & Setup
+## Commands
 
-1. **Clone the repository**
-   ```sh
-   git clone https://github.com/abhay-2108/Abhay-Portfolio.git
-   cd Portfolio-Website
-   ```
+```sh
+# Install
+npm ci
 
-2. **Install dependencies**
-   ```sh
-   npm install
-   ```
+# Local development
+npm run dev -- --host 127.0.0.1 --port 5199
 
-3. **Start the development server**
-   ```sh
-   npm run dev
-   ```
+# Production build
+npm run build
 
-4. **Build for production**
-   ```sh
-   npm run build
-   ```
+# Preview the production build
+npm run preview
+
+# Lint
+npm run lint
+```
+
+### Docker
+
+```sh
+docker build -t abhay-portfolio .
+docker run --rm -p 8080:80 abhay-portfolio
+```
+
+The image is a two-stage build: `node:20-alpine` compiles the Vite bundle, then `nginx:1.27-alpine` serves `dist/`.
 
 ---
 
-## 🖼 Screenshots
-![pic1](https://github.com/user-attachments/assets/7866767f-58db-4e3c-8acb-aaf64c5a6180)
+## Key files
 
-![image](https://github.com/user-attachments/assets/4c642962-97cd-496f-92a0-7c1a4ea0f9a5)
+```text
+src/
+  data/portfolio.js                 # single source of truth for all content
+  components/hero/                  # hero, trace panel, proof strip
+  components/about/                 # thesis and principles
+  components/systems/               # flagship systems, compact cases, diagrams
+  components/labs/                  # CapForge and BeliefState
+  components/opensource/            # 10-row upstream ledger
+  components/capabilities/          # 60/40 capability matrix
+  components/contact/               # email, resume, GitHub
+  styles/                           # tokens, base, layout, components
+public/
+  Abhay_AI_Resume.pdf               # resume download
+  og-image.png                      # 1200×630 social card
+  favicon.svg
+```
 
+`design-preview/` and `UI_DESIGN_SPEC.md` are retained as design references. The implemented site is the source of truth.
 
-![pic2](https://github.com/user-attachments/assets/ba873370-a9e0-45d5-8b31-2f1fc0ac1b70)
+---
 
+## Content and link notes
+
+- Agent Foundry's README displays an MIT badge, but GitHub currently detects **no LICENSE file**. The site therefore calls it an **Active Public Build** and labels the hero chip **LOCAL-FIRST**, not MIT.
+- CapForge and BeliefState are shown as Apache-2.0 per their repositories. BeliefState is also published on PyPI as `beliefstate`.
+- The CapForge PyPI package is unrelated to Altiora Labs CapForge, so the site never links it.
+- The DocsGPT `#2505` result is a **local** 100× ingestion benchmark, not a merged production claim. The ledger marks the PR `Superseded`.
+- Indra's Hugging Face deployment was reachable during QA, but the site links only to the repository to avoid depending on a space that can sleep or redeploy.
+- LinkedIn returns HTTP `999` to automated checks; the profile URL is valid for human visitors.
+- A canonical production URL is still required before setting absolute `og:url` and canonical metadata.
+
+---
+
+## Visual QA
+
+The current build was checked at **1440px**, **1024px**, and **390px**:
+
+- no horizontal overflow
+- 10 ledger rows rendered with correct status classes
+- all 23 reveal elements became visible on scroll
+- no browser console errors
+- 29 external links use `target="_blank"` with `rel="noopener noreferrer"`
+- `/Abhay_AI_Resume.pdf` returned `200` with `application/pdf`
+- mobile menu opens and closes without overflow
+
+---
+
+## License
+
+Site code and personal content © Abhay Tiwari. Project links and third-party marks belong to their respective owners.
