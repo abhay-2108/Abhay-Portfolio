@@ -381,6 +381,7 @@
   }
 
   .brand {
+    min-height: 44px;
     font-size: 13px;
   }
 
@@ -394,7 +395,26 @@
     gap: 16px;
   }
 
+  .site-footer__links {
+    gap: 14px;
+  }
+
   .site-footer__note {
     display: none;
+  }
+}
+
+@media (max-height: 720px) {
+  .mobile-menu__nav {
+    padding: 28px 0;
+  }
+
+  .mobile-menu__nav a {
+    padding: 11px 0;
+  }
+
+  .mobile-menu__footer {
+    gap: 14px;
+    padding-top: 20px;
   }
 }

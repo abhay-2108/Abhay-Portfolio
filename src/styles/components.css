@@ -1892,15 +1892,23 @@
   }
 
   .hero h1 {
-    font-size: clamp(42px, 12vw, 56px);
+    font-size: clamp(38px, 12vw, 56px);
   }
 
   .hero__current {
     font-size: 9px;
   }
 
+  .proof__item {
+    padding: 17px 0 17px 14px;
+  }
+
   .trace__body {
-    padding: 16px 14px 14px;
+    padding: 15px 12px 13px;
+  }
+
+  .trace__chip {
+    right: 0;
   }
 
   .trace__command {
@@ -1927,11 +1935,20 @@
   }
 
   .case__stats {
-    gap: 22px;
+    gap: 18px;
   }
 
   .case__stat-value {
     font-size: 21px;
+  }
+
+  .case__links {
+    gap: 14px;
+    margin-top: 20px;
+  }
+
+  .diagram {
+    padding: 14px;
   }
 
   .diagram__top .mono-label:last-child {
@@ -1953,6 +1970,8 @@
       "change arrow"
       "status arrow";
     row-gap: 4px;
+    min-height: 76px;
+    padding: 16px 0;
   }
 
   .ledger__row:hover {
@@ -1971,6 +1990,10 @@
   }
 
   .contact h2 {
-    font-size: clamp(48px, 14vw, 70px);
+    font-size: clamp(44px, 14vw, 70px);
+  }
+
+  .contact__actions {
+    gap: 8px;
   }
 }

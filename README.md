@@ -94,15 +94,17 @@ public/
 
 ## Visual QA
 
-The current build was checked at **1440px**, **1024px**, and **390px**:
+The current build was checked at **1440px**, **1024px**, **390px**, **360px**, and **320px**, plus a **320×568** short viewport:
 
-- no horizontal overflow
+- no horizontal overflow at any tested width
 - 10 ledger rows rendered with correct status classes
 - all 23 reveal elements became visible on scroll
 - no browser console errors
 - 29 external links use `target="_blank"` with `rel="noopener noreferrer"`
 - `/Abhay_AI_Resume.pdf` returned `200` with `application/pdf`
 - mobile menu opens and closes without overflow
+- mobile menu keeps the resume action visible at 320×568
+- 320px layouts use tighter trace, case-stat, diagram, ledger, and footer spacing
 
 ---
 
