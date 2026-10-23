@@ -1,4 +1,9 @@
-import { capabilities, credentials, profile } from "../../data/portfolio";
+import {
+  capabilities,
+  credentials,
+  profile,
+  verification,
+} from "../../data/portfolio";
 import Reveal from "../ui/Reveal";
 import SectionHeader from "../ui/SectionHeader";
 
@@ -75,6 +80,11 @@ const CapabilityMatrix = () => (
         The 60/40 is not a theme. It is the actual shape of the work:{" "}
         <b>the model is one dependency; the runtime is the product.</b>
       </Reveal>
+
+      <p className="capability-source">
+        Test counts are from the linked project READMEs, checked{" "}
+        <time dateTime={verification.iso}>{verification.label}</time>.
+      </p>
 
       <BackgroundStrip />
     </div>

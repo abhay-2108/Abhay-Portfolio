@@ -1,4 +1,4 @@
-import { compactCases, systems } from "../../data/portfolio";
+import { compactCases, systems, verification } from "../../data/portfolio";
 import SectionHeader from "../ui/SectionHeader";
 import CaseStudy from "./CaseStudy";
 import CompactCase from "./CompactCase";
@@ -33,6 +33,10 @@ const Systems = () => (
           <CompactCase item={item} key={item.title} />
         ))}
       </div>
+      <p className="compact-grid__note">
+        Compact-project claims checked against the linked repositories on{" "}
+        <time dateTime={verification.iso}>{verification.label}</time>.
+      </p>
     </div>
   </section>
 );

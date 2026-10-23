@@ -1,3 +1,4 @@
+import { verification } from "../../data/portfolio";
 import ArchitectureDiagram from "./ArchitectureDiagram";
 import Reveal from "../ui/Reveal";
 
@@ -32,6 +33,27 @@ const CaseStudy = ({ system }) => {
             </div>
           ))}
         </div>
+
+        <div className="case__evidence">
+          <span className="case__verified">
+            Verified{" "}
+            <time dateTime={verification.iso}>{system.verified}</time>
+          </span>
+          <span className="case__sources">
+            {system.sources.map((source) => (
+              <a
+                href={source.href}
+                key={source.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${system.title} source: ${source.label} (opens in a new tab)`}
+              >
+                {source.label} <span aria-hidden="true">↗</span>
+              </a>
+            ))}
+          </span>
+        </div>
+        <p className="case__evidence-note">{system.evidenceNote}</p>
 
         <div className="case__stack" aria-label="Technology stack">
           {system.stack.map((item) => (

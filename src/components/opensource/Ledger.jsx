@@ -1,4 +1,4 @@
-import { contributions } from "../../data/portfolio";
+import { contributions, verification } from "../../data/portfolio";
 import Reveal from "../ui/Reveal";
 import SectionHeader from "../ui/SectionHeader";
 
@@ -87,6 +87,11 @@ const Ledger = () => (
           ))}
         </ul>
       </Reveal>
+      <p className="ledger__note">
+        PR states and impact labels checked{" "}
+        <time dateTime={verification.iso}>{verification.label}</time>. The
+        100× figure is a local DocsGPT benchmark, not a production claim.
+      </p>
     </div>
   </section>
 );

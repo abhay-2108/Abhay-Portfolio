@@ -2,7 +2,7 @@ const DIAGRAMS = {
   "agent-foundry": {
     label: "agent-foundry / runtime",
     meta: "LOCAL-FIRST",
-    note: "10 personas · 40 skills · 0 telemetry",
+    note: "10 personas · 42 skills · 0 telemetry",
     rows: [
       { type: "node", primary: true, title: "› task.orchestrator", state: "DAG" },
       { type: "arrow" },
@@ -17,7 +17,7 @@ const DIAGRAMS = {
       { type: "arrow" },
       {
         type: "node",
-        title: "3 × FastMCP servers",
+        title: "4 × FastMCP servers",
         state: "JSON-RPC",
         strongTitle: true,
       },

@@ -13,6 +13,11 @@ export const profile = {
   currentSecondary: "shipping CapForge + BeliefState",
 };
 
+export const verification = {
+  label: "23 Oct 2026",
+  iso: "2026-10-23",
+};
+
 export const navLinks = [
   { href: "#systems", label: "Systems" },
   { href: "#labs", label: "Labs" },
@@ -35,10 +40,38 @@ export const hero = {
 };
 
 export const proof = [
-  { value: "10", label: "Featured PRs", detail: "across 5 repos" },
-  { value: "100", label: "Ingestion speedup", detail: "× local" },
-  { value: "113", label: "PageFlow tests", detail: "passing" },
-  { value: "10", label: "Agent personas", detail: "specialists" },
+  {
+    value: "10",
+    label: "Featured PRs",
+    detail: "across 5 repos",
+    href: "#ledger",
+    source: "Upstream ledger",
+    external: false,
+  },
+  {
+    value: "100×",
+    label: "Local ingestion",
+    detail: "benchmark",
+    href: "https://github.com/arc53/DocsGPT/pull/2505",
+    source: "DocsGPT #2505 · closed",
+    external: true,
+  },
+  {
+    value: "113",
+    label: "PageFlow tests",
+    detail: "README badge",
+    href: "https://github.com/abhay-2108/PageFlow#testing--quality-verification",
+    source: "PageFlow README",
+    external: true,
+  },
+  {
+    value: "10",
+    label: "Agent personas",
+    detail: "AGENT.md files",
+    href: "https://github.com/abhay-2108/agent-foundry/tree/main/agents",
+    source: "Agent Foundry tree",
+    external: true,
+  },
 ];
 
 export const trace = {
@@ -46,7 +79,7 @@ export const trace = {
   command: 'run agent-foundry --task "ship feature"',
   lines: [
     { op: "memory.recall", detail: "3-tier · SQLite WAL", time: "HIT" },
-    { op: "tools.resolve", detail: "40 skills · 3 servers", time: "MCP" },
+    { op: "tools.resolve", detail: "42 skills · 4 servers", time: "MCP" },
     { op: "dag.plan", detail: "personas · review gate", time: "DAG" },
     { op: "guard.validate", detail: "deterministic validation", time: "GATE" },
   ],
@@ -95,11 +128,11 @@ export const systems = [
     title: "Agent Foundry",
     emphasis: "an operating system for autonomous agents.",
     description:
-      "A local-first platform with 10 specialist personas, 40 modular skills, 3 FastMCP servers, and a 3-tier memory engine on SQLite WAL. It runs coding workflows with deterministic validation and zero cloud telemetry.",
+      "A local-first platform with 10 specialist personas, 42 modular skills, 4 MCP server entry points, and a 3-tier memory engine on SQLite WAL. It runs coding workflows with deterministic validation and zero cloud telemetry.",
     stats: [
       { value: "10", label: "specialist personas" },
-      { value: "40", label: "modular skills" },
-      { value: "3-Tier", label: "SQLite WAL memory" },
+      { value: "42", label: "modular skills" },
+      { value: "4", label: "MCP entry points" },
       { value: "0", label: "cloud telemetry" },
     ],
     stack: [
@@ -118,7 +151,20 @@ export const systems = [
     ],
     diagram: "agent-foundry",
     diagramLabel:
-      "Agent Foundry architecture: a DAG task orchestrator, orchestrator, builder and reviewer personas, three FastMCP servers, three-tier memory backed by SQLite WAL, and an eval and guardrail boundary.",
+      "Agent Foundry architecture: a DAG task orchestrator, builder and reviewer personas, four MCP server entry points, three-tier memory backed by SQLite WAL, and an eval and guardrail boundary.",
+    sources: [
+      {
+        label: "README",
+        href: "https://github.com/abhay-2108/agent-foundry#readme",
+      },
+      {
+        label: "repository tree",
+        href: "https://github.com/abhay-2108/agent-foundry",
+      },
+    ],
+    evidenceNote:
+      "Personas, skills, and MCP entry points counted from the repository tree; the zero-telemetry claim is from the project README.",
+    verified: verification.label,
   },
   {
     id: "indra-energy",
@@ -153,6 +199,15 @@ export const systems = [
     diagram: "indra",
     diagramLabel:
       "Indra architecture: geopolitical risk, scenario modelling, procurement, SPR, and digital twin agents, database state communication over SQLite, a geospatial operations map, and run-level audit archives.",
+    sources: [
+      {
+        label: "README",
+        href: "https://github.com/abhay-2108/Indra-The-Energy-Supply-Chain#readme",
+      },
+    ],
+    evidenceNote:
+      "README documents five CrewAI agents and the five-column supply-chain topology; run state is persisted in SQLite.",
+    verified: verification.label,
   },
   {
     id: "cortex-retail",
@@ -180,6 +235,15 @@ export const systems = [
     diagram: "cortex",
     diagramLabel:
       "Cortex Enterprise architecture: retail and supply signals, demand, inventory and risk agents, chain-of-thought reasoning, carbon-aware reorder rules, and a forensic audit ledger.",
+    sources: [
+      {
+        label: "README",
+        href: "https://github.com/abhay-2108/Cortex-Retail-The-Agentic-Enterprise-Intelligence-Suite#readme",
+      },
+    ],
+    evidenceNote:
+      "Capabilities and stack are described in the repository README; no performance benchmark is claimed.",
+    verified: verification.label,
   },
   {
     id: "vectracache",
@@ -214,6 +278,15 @@ export const systems = [
     diagram: "vectracache",
     diagramLabel:
       "VectraCache architecture: a search query enters SentenceTransformers and BM25 retrieval, a Gaussian-mixture router assigns topic clusters, FAISS serves the vector index, and a cluster-aware cache applies LRU eviction and float16 quantization.",
+    sources: [
+      {
+        label: "README",
+        href: "https://github.com/abhay-2108/VectraCache#readme",
+      },
+    ],
+    evidenceNote:
+      "Architecture and feature claims are from the repository README; the project is presented as an engineering build.",
+    verified: verification.label,
   },
 ];
 
@@ -271,7 +344,7 @@ export const labs = [
       { value: "3-Plane", label: "runtime architecture" },
       { value: "5-Level", label: "verification pipeline" },
       { value: "MCP", label: "stdio + SSE hub" },
-      { value: "289/290", label: "tests passing" },
+      { value: "289/290", label: "tests (README)" },
     ],
     stack: [
       "Python",
@@ -296,6 +369,19 @@ export const labs = [
     diagram: "capforge",
     diagramLabel:
       "CapForge architecture: host agents and MCP clients enter an execution plane, a control plane backed by SQLite WAL, and a learning plane that synthesizes and verifies capabilities through Z3/SymPy proofs, sandboxing, and mutation testing before exposing an active capability.",
+    sources: [
+      {
+        label: "README",
+        href: "https://github.com/AltioraLabs/CapForge#readme",
+      },
+      {
+        label: "CI runs",
+        href: "https://github.com/AltioraLabs/CapForge/actions",
+      },
+    ],
+    evidenceNote:
+      "README reports 289/290 tests; the main CI workflow last completed successfully on 5 Oct 2026.",
+    verified: verification.label,
   },
   {
     id: "beliefstate",
@@ -340,6 +426,19 @@ export const labs = [
     diagram: "beliefstate",
     diagramLabel:
       "BeliefState architecture: an LLM turn enters a background tracker, fact extraction runs on user and assistant messages, a three-stage rule, embedding, and judge pipeline resolves contradictions, beliefs persist in SQLite, Postgres, or Redis, and relevant context is injected on the next call.",
+    sources: [
+      {
+        label: "README",
+        href: "https://github.com/AltioraLabs/beliefstate#readme",
+      },
+      {
+        label: "PyPI v1.2.0",
+        href: "https://pypi.org/project/beliefstate/",
+      },
+    ],
+    evidenceNote:
+      "PyPI release is v1.2.0; 5+ providers, three persistent stores, and the three-stage contradiction pipeline are documented in the README.",
+    verified: verification.label,
   },
 ];
 
@@ -476,8 +575,8 @@ export const capabilities = {
       name: "Performance & I/O optimization",
       evidence: "DOCSGPT · CAPFORGE",
     },
-    { name: "Testing & CI", evidence: "289/290 · 113 TESTS" },
-    { name: "Docker & local deployment", evidence: "CAPFORGE · LOCAL-FIRST" },
+    { name: "Testing & CI", evidence: "289/290 CAPFORGE · 113 PAGEFLOW" },
+    { name: "Sandboxed local deployment", evidence: "CAPFORGE · AGENT FOUNDRY" },
     { name: "Streaming data pipelines", evidence: "LOGISTICS · INDRA" },
   ],
 };

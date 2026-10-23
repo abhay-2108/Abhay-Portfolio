@@ -15,8 +15,27 @@
   height: 100%;
   background: var(--signal);
   transform-origin: 0 50%;
-  transform: scaleX(0);
-  transition: transform 120ms linear;
+  transform: scaleX(var(--scroll-progress, 0));
+  will-change: transform;
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress span {
+    animation: scrollProgress linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 100%;
+    transform: scaleX(0);
+  }
+}
+
+@keyframes scrollProgress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
 }
 
 /* ---------- Header ---------- */
@@ -65,7 +84,7 @@
   display: block;
   margin-top: 3px;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 9.5px;
   font-weight: 400;
   letter-spacing: 0.14em;
   color: var(--dim);
@@ -92,7 +111,7 @@
 .monogram--small {
   width: 22px;
   height: 22px;
-  font-size: 9px;
+  font-size: 9.5px;
 }
 
 .site-nav {
@@ -123,7 +142,7 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 10.5px;
   line-height: 1;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -154,7 +173,7 @@
 .button--small {
   height: 34px;
   padding: 0 14px;
-  font-size: 9.5px;
+  font-size: 10.5px;
 }
 
 .site-header__resume {
@@ -289,7 +308,7 @@
 
 .mobile-menu__nav a span {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 0.12em;
   color: var(--signal);
 }

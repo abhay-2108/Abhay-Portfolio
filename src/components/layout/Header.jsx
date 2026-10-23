@@ -21,7 +21,11 @@ const Header = () => {
     <>
       <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
         <div className="container site-header__inner">
-          <a className="brand" href="#top" aria-label="Abhay Tiwari, back to top">
+          <a
+            className="brand"
+            href="#top"
+            aria-label="AT — Abhay Tiwari, AI Engineer, back to top"
+          >
             <Monogram />
             <span className="brand__text">
               abhay tiwari

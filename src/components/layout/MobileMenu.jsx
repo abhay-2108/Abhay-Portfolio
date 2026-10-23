@@ -64,7 +64,12 @@ const MobileMenu = ({ open, onClose, links, profile }) => {
       ref={panelRef}
     >
       <div className="mobile-menu__top">
-        <a className="brand" href="#top" onClick={onClose}>
+        <a
+          className="brand"
+          href="#top"
+          onClick={onClose}
+          aria-label="AT — Abhay Tiwari, AI Engineer, back to top"
+        >
           <Monogram />
           <span className="brand__text">
             abhay tiwari

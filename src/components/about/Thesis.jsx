@@ -1,4 +1,7 @@
-import profilePhoto from "../../assets/profile-portrait.webp";
+import profilePhoto450Avif from "../../assets/profile-portrait-450.avif";
+import profilePhoto900Avif from "../../assets/profile-portrait-900.avif";
+import profilePhoto450Webp from "../../assets/profile-portrait-450.webp";
+import profilePhoto900Webp from "../../assets/profile-portrait-900.webp";
 import { about, profile } from "../../data/portfolio";
 import Eyebrow from "../ui/Eyebrow";
 import Reveal from "../ui/Reveal";
@@ -8,13 +11,25 @@ const Thesis = () => (
     <div className="container thesis__grid">
       <Reveal className="thesis__portrait-wrap">
         <figure className="portrait">
-          <img
-            src={profilePhoto}
-            alt="Abhay Tiwari, AI engineer"
-            width="900"
-            height="1200"
-            loading="lazy"
-          />
+          <picture>
+            <source
+              type="image/avif"
+              srcSet={`${profilePhoto450Avif} 450w, ${profilePhoto900Avif} 900w`}
+              sizes="(max-width: 720px) 340px, 400px"
+            />
+            <source
+              type="image/webp"
+              srcSet={`${profilePhoto450Webp} 450w, ${profilePhoto900Webp} 900w`}
+              sizes="(max-width: 720px) 340px, 400px"
+            />
+            <img
+              src={profilePhoto900Webp}
+              alt="Abhay Tiwari, AI engineer"
+              width="900"
+              height="1200"
+              loading="lazy"
+            />
+          </picture>
           <figcaption className="portrait__caption">
             <span>
               <b>{profile.name}</b>

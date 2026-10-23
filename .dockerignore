@@ -1,9 +1,0 @@
-node_modules
-dist
-.git
-.gitignore
-.env
-.env.*
-design-preview
-UI_DESIGN_SPEC.md
-README.md

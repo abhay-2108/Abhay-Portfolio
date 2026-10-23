@@ -1,3 +1,4 @@
+import { verification } from "../../data/portfolio";
 import ArchitectureDiagram from "../systems/ArchitectureDiagram";
 import Reveal from "../ui/Reveal";
 
@@ -34,6 +35,27 @@ const LabCard = ({ lab, delay = 0 }) => {
             </div>
           ))}
         </div>
+
+        <div className="lab-card__evidence">
+          <span className="lab-card__verified">
+            Verified{" "}
+            <time dateTime={verification.iso}>{lab.verified}</time>
+          </span>
+          <span className="lab-card__sources">
+            {lab.sources.map((source) => (
+              <a
+                href={source.href}
+                key={source.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${lab.title} source: ${source.label} (opens in a new tab)`}
+              >
+                {source.label} <span aria-hidden="true">↗</span>
+              </a>
+            ))}
+          </span>
+        </div>
+        <p className="lab-card__evidence-note">{lab.evidenceNote}</p>
 
         <div className="lab-card__stack" aria-label="Technology stack">
           {lab.stack.map((item) => (
