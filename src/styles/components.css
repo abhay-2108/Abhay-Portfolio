@@ -18,6 +18,7 @@
   transition: transform var(--dur-hover) var(--ease),
     background var(--dur-hover) var(--ease),
     border-color var(--dur-hover) var(--ease),
+    box-shadow var(--dur-hover) var(--ease),
     color var(--dur-hover) var(--ease);
 }
 
@@ -62,6 +63,7 @@
 
 .text-link span {
   color: var(--signal);
+  transition: transform var(--dur-hover) var(--ease);
 }
 
 .text-link:hover {
@@ -1995,5 +1997,35 @@
 
   .contact__actions {
     gap: 8px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button--primary:hover {
+    box-shadow: 0 10px 28px rgba(200, 247, 81, 0.12);
+  }
+
+  .button--ghost:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  }
+
+  .button span[aria-hidden="true"] {
+    transition: transform var(--dur-hover) var(--ease);
+  }
+
+  .button:hover span[aria-hidden="true"] {
+    transform: translateX(2px);
+  }
+
+  .text-link:hover span {
+    transform: translate(2px, -2px);
+  }
+
+  .ledger__row:hover {
+    background: rgba(200, 247, 81, 0.035);
+  }
+
+  .ledger__row:hover .ledger__change {
+    color: var(--text);
   }
 }

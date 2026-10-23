@@ -69,6 +69,7 @@
   font-weight: 400;
   letter-spacing: 0.14em;
   color: var(--dim);
+  transition: color var(--dur-hover) var(--ease);
 }
 
 .monogram {
@@ -84,6 +85,8 @@
   font-size: 11px;
   font-weight: 700;
   letter-spacing: -0.03em;
+  transition: background var(--dur-hover) var(--ease),
+    transform var(--dur-hover) var(--ease);
 }
 
 .monogram--small {
@@ -168,6 +171,8 @@
   border-radius: 2px;
   background: transparent;
   cursor: pointer;
+  transition: background var(--dur-hover) var(--ease),
+    border-color var(--dur-hover) var(--ease);
 }
 
 .menu-toggle span {
@@ -242,6 +247,8 @@
   border-radius: 2px;
   background: transparent;
   cursor: pointer;
+  transition: background var(--dur-hover) var(--ease),
+    border-color var(--dur-hover) var(--ease);
 }
 
 .mobile-menu__close span {
@@ -277,6 +284,7 @@
   letter-spacing: -0.04em;
   line-height: 1.1;
   color: var(--text);
+  transition: color var(--dur-hover) var(--ease);
 }
 
 .mobile-menu__nav a span {
@@ -416,5 +424,51 @@
   .mobile-menu__footer {
     gap: 14px;
     padding-top: 20px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .brand:hover .monogram {
+    background: var(--signal-hover);
+    transform: translateY(-1px);
+  }
+
+  .brand:hover .brand__text small {
+    color: var(--signal);
+  }
+
+  .site-nav a {
+    position: relative;
+  }
+
+  .site-nav a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -6px;
+    left: 0;
+    height: 1px;
+    background: var(--signal);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--dur-hover) var(--ease);
+  }
+
+  .site-nav a:hover::after {
+    transform: scaleX(1);
+  }
+
+  .menu-toggle:hover,
+  .mobile-menu__close:hover {
+    border-color: rgba(242, 241, 236, 0.3);
+    background: rgba(242, 241, 236, 0.035);
+  }
+
+  .mobile-menu__nav a:hover {
+    color: var(--signal);
+  }
+
+  .mobile-menu__nav a:hover span {
+    color: var(--text);
   }
 }
