@@ -246,12 +246,12 @@ export const compactCases = [
     linkLabel: "View repository",
   },
   {
-    title: "YouTube Q&A Agent",
-    role: "Local RAG Browser Tool",
+    title: "DiaTrace.AI",
+    role: "Diabetes Temporal Trace Engine",
     summary:
-      "A Chrome extension and Streamlit app that pull YouTube transcripts, chunk them into ChromaDB, and answer questions with local Ollama models.",
-    tags: ["Python", "Streamlit", "ChromaDB", "Ollama", "Chrome Extension"],
-    href: "https://github.com/abhay-2108/YouTube-Summarizer-Agent-with-Chrome-Extension",
+      "Four CrewAI agents turn synthetic longitudinal EHR notes into structured timelines, eGFR decline math, ADA guideline audits, and a cited causal trace.",
+    tags: ["Python", "CrewAI", "Qwen2.5", "ChromaDB", "FastAPI"],
+    href: "https://github.com/abhay-2108/Diabetes-Temporal-Trace-Analysis-Engine",
     linkLabel: "View repository",
   },
 ];

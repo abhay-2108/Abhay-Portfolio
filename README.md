@@ -9,7 +9,7 @@ The site is a 60/40 dossier of intelligence-layer and systems-layer work, not a 
 ## What is in the site
 
 - **4 flagship systems:** Agent Foundry, Indra Energy Platform, Cortex Enterprise, and VectraCache.
-- **4 compact projects:** PageFlow, ComplianceAI, Logistics ML Pipeline, and YouTube Q&A Agent.
+- **4 compact projects:** PageFlow, ComplianceAI, Logistics ML Pipeline, and DiaTrace.AI (Diabetes Temporal Trace Engine).
 - **2 Altiora Labs products:** CapForge and BeliefState.
 - **10 featured upstream PRs** across 5 repositories, with GitHub-accurate `Merged`, `Open`, `Closed`, and `Superseded` states.
 - **7 sections:** hero, thesis, systems, labs, upstream ledger, capability matrix, and contact.
