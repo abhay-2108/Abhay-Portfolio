@@ -18,6 +18,11 @@ export const verification = {
   iso: "2026-10-23",
 };
 
+export const ledgerVerification = {
+  label: "24 Oct 2026",
+  iso: "2026-10-24",
+};
+
 export const navLinks = [
   { href: "#systems", label: "Systems" },
   { href: "#labs", label: "Labs" },
@@ -458,7 +463,7 @@ export const contributions = [
     change:
       "Token overlap for the recursive chunker (#2919)",
     impact: "Token overlap",
-    status: "Open",
+    status: "Merged",
     href: "https://github.com/arc53/DocsGPT/pull/2919",
   },
   {

@@ -74,7 +74,7 @@ public/
 
 ## Content and link notes
 
-- Every displayed metric links to its source and carries a verification date. Stats were checked on **23 Oct 2026**.
+- Every displayed metric links to its source and carries a verification date. Project metrics were checked on **23 Oct 2026**; the upstream ledger was re-checked on **24 Oct 2026**.
 - Agent Foundry counts come from the repository tree: **10 `AGENT.md` personas**, **42 `SKILL.md` skills**, and **4 MCP server entry points**. The README badge is not used where it disagrees.
 - Agent Foundry's README displays an MIT badge, but GitHub currently detects **no LICENSE file**. The site therefore calls it an **Active Public Build** and labels the hero chip **LOCAL-FIRST**, not MIT.
 - CapForge and BeliefState are shown as Apache-2.0 per their repositories. BeliefState is also published on PyPI as `beliefstate`.
