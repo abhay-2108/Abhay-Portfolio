@@ -11,7 +11,7 @@ The site is a 60/40 dossier of intelligence-layer and systems-layer work, not a 
 - **4 flagship systems:** Agent Foundry, Indra Energy Platform, Cortex Enterprise, and VectraCache.
 - **4 compact projects:** PageFlow, ComplianceAI, Logistics ML Pipeline, and DiaTrace.AI (Diabetes Temporal Trace Engine).
 - **2 Altiora Labs products:** CapForge and BeliefState.
-- **10 featured upstream PRs** across 5 repositories, with GitHub-accurate `Merged`, `Open`, `Closed`, and `Superseded` states.
+- **10 featured upstream PRs** across 5 repositories, with GitHub-accurate `Merged`, `Open`, and `Closed` states.
 - **7 sections:** hero, thesis, systems, labs, upstream ledger, capability matrix, and contact.
 
 All visible content is sourced from [`src/data/portfolio.js`](./src/data/portfolio.js). Edit that file first when changing copy, links, projects, or ledger entries.
@@ -74,12 +74,12 @@ public/
 
 ## Content and link notes
 
-- Every displayed metric links to its source and carries a verification date. Project metrics were checked on **23 Oct 2026**; the upstream ledger was re-checked on **24 Oct 2026**.
+- Every displayed metric links to its source and carries a verification date. Project metrics were checked on **23 Oct 2026**; the upstream ledger was re-checked on **1 Nov 2026**.
 - Agent Foundry counts come from the repository tree: **10 `AGENT.md` personas**, **42 `SKILL.md` skills**, and **4 MCP server entry points**. The README badge is not used where it disagrees.
 - Agent Foundry's README displays an MIT badge, but GitHub currently detects **no LICENSE file**. The site therefore calls it an **Active Public Build** and labels the hero chip **LOCAL-FIRST**, not MIT.
 - CapForge and BeliefState are shown as Apache-2.0 per their repositories. BeliefState is also published on PyPI as `beliefstate`.
 - The CapForge PyPI package is unrelated to Altiora Labs CapForge, so the site never links it.
-- The DocsGPT `#2505` result is a **local** 100× ingestion benchmark from a closed, unmerged PR, not a production claim. The ledger marks the PR `Superseded`.
+- The DocsGPT `#2505` PR was closed unmerged on **6 Oct 2026**; its **100×** figure remains a **local** ingestion benchmark, not a production claim.
 - PageFlow's **113 tests** figure is from its README badge; the repository has no GitHub Actions runs.
 - CapForge's **289/290 tests** figure is from its README; the main CI workflow last completed successfully on **5 Oct 2026**.
 - BeliefState is published on PyPI as `beliefstate` at **v1.2.0**.

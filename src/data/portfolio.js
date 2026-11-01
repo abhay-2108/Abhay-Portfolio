@@ -19,8 +19,8 @@ export const verification = {
 };
 
 export const ledgerVerification = {
-  label: "24 Oct 2026",
-  iso: "2026-10-24",
+  label: "1 Nov 2026",
+  iso: "2026-11-01",
 };
 
 export const navLinks = [
@@ -454,7 +454,7 @@ export const contributions = [
     change:
       "Batched vector ingestion + recursive chunking with overlap (#2505)",
     impact: "100× local",
-    status: "Superseded",
+    status: "Closed",
     href: "https://github.com/arc53/DocsGPT/pull/2505",
   },
   {
