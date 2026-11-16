@@ -19,8 +19,8 @@ export const verification = {
 };
 
 export const ledgerVerification = {
-  label: "1 Nov 2026",
-  iso: "2026-11-01",
+  label: "16 Nov 2026",
+  iso: "2026-11-16",
 };
 
 export const navLinks = [
