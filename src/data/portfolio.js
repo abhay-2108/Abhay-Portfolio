@@ -19,8 +19,8 @@ export const verification = {
 };
 
 export const ledgerVerification = {
-  label: "16 Nov 2026",
-  iso: "2026-11-16",
+  label: "19 Nov 2026",
+  iso: "2026-11-19",
 };
 
 export const navLinks = [
@@ -481,7 +481,7 @@ export const contributions = [
     change:
       "RISC-V PIE admission in the Ghidra lane (#4811)",
     impact: "RISC-V PIE",
-    status: "Open",
+    status: "Merged",
     href: "https://github.com/morluto/rea/pull/4811",
   },
   {
